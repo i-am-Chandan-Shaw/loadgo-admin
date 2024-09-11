@@ -1,0 +1,60 @@
+<div class="loader-overlay" *ngIf="showLoader" #overlay></div>
+<div class="loader-image" #loaderImage *ngIf="showLoader">
+  <img *ngIf="loaderImageName != ''" src="./assets/img/{{loaderImageName}}"
+    [ngStyle]="{'width': '64px', 'height': '64px'}" alt="Content Is Loading">
+</div>
+
+<div class="table-container" [ngClass]="{'enable-scroll-x':showXScroll}" #tableContainer>
+  <table class="table scrollable" #tableLib>
+    <thead class="ecw-theader" #headerTable>
+      <ng-content select="[ecw-theader]"></ng-content>
+    </thead>
+    <tbody class="ecw-child-table" #bodyTable [style]="{'height': tableHeight, 'max-height':maxTableHeight}"
+      (scroll)="detectScroll($event)">
+      <ng-content select="[ecw-tbody]"></ng-content>
+    </tbody>
+  </table>
+</div>
+
+<div class="flex justify-content-between footer-wrapper" #footerSection *ngIf="showPagination">
+
+  <!-- Pagination -->
+  <ng-container *ngIf="showPaginationPanel">
+    <div class="">
+      <div class="flex align-items-center">
+        <div class="mr-1 fnt12bold">
+          Show
+        </div>
+        <div class="flex align-items-center">
+          <p-dropdown [options]="pageList" id="pageList" [(ngModel)]="selectedPage" placeholder="Select"
+            (onChange)="updateRowCount($event)" optionLabel="name" class="custom-select">
+          </p-dropdown>
+
+          <div class="mr-3 ml-1 fnt12bold">
+            of {{paginationState.limit}} rows per page</div>
+          <button type="button" class="btn-grey btn20 mr-1" (click)="jumpTo(1)"
+            [ngStyle]="this.paginationState.currentPage == 1 ? {'cursor':'not-allowed', 'border':'1px solid #EBEBEB'}:{}"><i
+              [ngStyle]="this.paginationState.currentPage == 1 ? {'color':'#B2B2B2','cursor':'not-allowed'}:{}"
+              class="icon icon-previous"></i></button>
+          <button type="button" class="btn-grey btn20" (click)="paginate('prev')"
+            [ngStyle]="this.paginationState.currentPage == 1 ? {'cursor':'not-allowed', 'border':'1px solid #EBEBEB'}:{}"><i
+              [ngStyle]="this.paginationState.currentPage == 1 ? {'color':'#B2B2B2','cursor':'not-allowed'}:{}"
+              class="icon icon-chevron-left"></i></button>
+          <input type="text" class="form-control pagination-inputbox clearable footer-input mx-1 fntsemibold"
+            [ngModel]="paginationState.currentPage" (change)="updatePage($event)" />
+          <div class="fnt11 mr-1 fnt12bold">
+            of {{totalPages}}
+          </div>
+          <button type="button" class="btn-grey btn20 mr-1" (click)="paginate('next')"
+            [ngStyle]="this.paginationState.currentPage == this.totalPages ? {'cursor':'not-allowed', 'border':'1px solid #EBEBEB'}:{}"><i
+              [ngStyle]="this.paginationState.currentPage == this.totalPages ? {'color':'#B2B2B2','cursor':'not-allowed'}:{}"
+              class="icon icon-chevron-right"></i></button>
+          <button type="button" class="btn-grey btn20" (click)="jumpTo(0)"
+            [ngStyle]="this.paginationState.currentPage == this.totalPages ? {'cursor':'not-allowed', 'border':'1px solid #EBEBEB'}:{}"><i
+              [ngStyle]="this.paginationState.currentPage == this.totalPages ? {'color':'#B2B2B2','cursor':'not-allowed'}:{}"
+              class="icon icon-next"></i></button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

@@ -1,0 +1,95 @@
+//** variable section**//
+$bg-alert: #e88842;
+$bg-warning: #fbce2a;
+$bg-notify: #2B91D9;
+$bg-error: #fc695c;
+
+//iCon color
+$icon-warning-color: #444;
+$icon-notify-color: #fff;
+
+
+.confirmation-alert {
+  display: flex;
+  min-height: 130px;
+  width: 540px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  box-shadow: 0px 0px 10px 2px rgba(68, 68, 68, 0.2);
+  transform: translate(-50%, -50%);
+  background: #fff;
+  z-index: 1;
+
+  .left-section {
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.confirm-bg {
+      background: $bg-alert;
+    }
+
+  }
+
+  &.alert {
+    .left-section {
+      background: $bg-alert;
+
+      .icon {
+        color: $secondary-color;
+        font-size: 23px;
+      }
+    }
+  }
+
+  &.warning {
+    .left-section {
+      background: $bg-warning;
+
+      .icon {
+        color: $icon-warning-color;
+        font-size: 23px;
+      }
+    }
+  }
+
+  &.notify {
+    .left-section {
+      background: $bg-notify;
+
+      .icon {
+        color: $icon-notify-color;
+        font-size: 23px;
+      }
+    }
+
+    .cancel-btn {
+      display: none;
+    }
+  }
+
+  &.error {
+    .left-section {
+      background: $bg-error;
+
+      .icon {
+        color: $icon-notify-color;
+        font-size: 23px;
+      }
+    }
+
+    .cancel-btn {
+      display: none;
+    }
+  }
+
+  //** background color for different senario
+
+
+  .right-section {
+    padding: 15px;
+    width: calc(100% - 60px);
+  }
+}

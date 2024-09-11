@@ -1,0 +1,127 @@
+$dateClr: #000000;
+$dateHeaderClr: #444444;
+$iconColor: #454545;
+
+.custom-datepicker {
+    .p-datepicker {
+        box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 6px;
+        padding: 6px;
+        min-width: max-content;
+
+        .p-datepicker-header {
+            padding: 5.5px 0.5rem;
+
+            .p-datepicker-prev {
+                width: 28px;
+                height: 28px;
+                color: #666666;
+
+                .p-datepicker-prev-icon {
+                    font-size: 11px;
+                }
+            }
+
+            .p-datepicker-next {
+                width: 28px;
+                height: 28px;
+                color: #666666;
+
+                .p-datepicker-next-icon {
+                    font-size: 11px;
+                }
+            }
+
+            .p-datepicker-title {
+                line-height: unset;
+
+                .p-link {
+                    font-size: 14px;
+                    font-family: $fnt-family-bold;
+                    color: #444444;
+                    padding: 6px;
+                    line-height: 20px;
+                }
+            }
+        }
+
+        //** table content
+        table {
+            margin-bottom: 0px;
+            margin-top: 6px;
+
+            td {
+                padding: 2px;
+
+                &>span {
+                    width: 32px;
+                    height: 32px;
+                    font-size: 12px;
+                    font-family: 'open_sansregular';
+                    font-weight: 100;
+                    color: $dateHeaderClr;
+
+                    &.p-highlight {
+                        background: #E9F8FF;
+                        color: #005CC8;
+                    }
+                }
+            }
+
+            th {
+                padding: 4px 8px;
+
+                &>span {
+                    font-size: 12px;
+                    font-family: 'open_sansregular';
+                    font-weight: 600;
+                    color: $dateClr;
+                }
+            }
+        }
+    }
+
+    .p-inputtext:enabled:hover {
+        border-color: #CCCCCC;
+    }
+
+    .p-inputtext {
+        font-size: 12px;
+        height: 24px;
+        padding: 0px 7px;
+
+        &:enabled:focus,
+        &:focus:not(:disabled) {
+            border-color: #3c8dbc;
+
+            +.p-datepicker-trigger {
+                border-color: #3c8dbc;
+            }
+        }
+
+        &::placeholder {
+            font-style: italic;
+        }
+
+        &:disabled {
+            background: #eeeeee;
+            cursor: no-drop;
+        }
+    }
+
+    .p-datepicker-trigger {
+        background: #fff;
+        border-color: #CCCCCC;
+        border-left: 0px;
+        height: 24px;
+        width: 24px;
+
+        .icon {
+            color: $iconColor;
+        }
+
+        &:disabled {
+            background: #eeeeee;
+        }
+    }
+}

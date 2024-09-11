@@ -1,0 +1,50 @@
+.p-toast {
+    opacity: 1;
+
+}
+
+.custom-toaster {
+    position: fixed;
+    margin-bottom: 0px;
+    bottom: 40px;
+    right: 20px;
+    border: none;
+    border-radius: 0px;
+    padding: 15px 10px !important;
+
+    &.p-toast-message-success {
+        background: #5CB85C;
+        color: #fff;
+        border-left: 0px;
+
+        .p-toast-message-content {
+            padding: 0px;
+
+            .toast-content {
+                padding: 0px;
+                align-items: center;
+
+                .icon {
+                    &.mips-icon-toast-tick {
+                        font-size: 20px;
+                    }
+
+                    &.cursor-pointer {
+                        cursor: pointer;
+                    }
+                }
+
+                .toaster-undo-btn {
+                    color: #000;
+                    font-size: 12px;
+                    border-radius: 2px;
+                    background: #fff;
+                    font-weight: 600;
+                    padding: 4px 10px;
+                    cursor: pointer;
+                    margin: 0px 5px;
+                }
+            }
+        }
+    }
+}

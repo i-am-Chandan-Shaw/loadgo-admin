@@ -1,0 +1,143 @@
+.p-multiselect {
+    &.custom-multiselect {
+        &.p-focus {
+            box-shadow: none;
+        }
+
+        height: 24px;
+
+        //**  **/
+        .p-multiselect-label-container {
+            .p-placeholder {
+                font-family: 'open_sansregular';
+                font-size: 11px;
+                line-height: 18px;
+                padding: 5px 8px;
+                font-style: italic;
+                color: #999;
+            }
+        }
+
+        //** multi select trigger **//
+        .p-multiselect-trigger {
+            width: 24px;
+            border-left: 1px solid #ccc;
+
+            .p-multiselect-trigger-icon {
+                font-size: 11px;
+            }
+        }
+
+        //*** Multiselect panel  **//
+        .p-multiselect-panel {
+            border: 1px solid #DBDBDB;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.18);
+
+            .p-multiselect-header {
+                padding: 6px 10px;
+
+                .p-multiselect-filter-container {
+
+                    .p-multiselect-filter {
+                        height: 24px;
+                        padding-left: 20px;
+                        padding-right: 0px;
+                        font-size: 11px;
+                    }
+
+                    .p-multiselect-filter-icon {
+                        font-size: 11px;
+                        top: 15px;
+                        left: 8px;
+                        width: 12px;
+                    }
+                }
+
+                .p-multiselect-close {
+                    width: 12px;
+                    margin-left: 5px;
+                    height: 24px;
+
+                    .p-multiselect-close-icon {
+                        font-size: 11px;
+                    }
+                }
+            }
+
+            .p-multiselect-items-wrapper {
+                .p-multiselect-items {
+                    padding: 0px;
+
+                    .p-multiselect-item {
+                        font-size: 11px;
+                        padding: 5px 10px;
+                        font-size: 11px;
+                        border-bottom: 1px solid #E1E1E1;
+                        color: #212121;
+                    }
+
+                    .p-multiselect-item {
+                        &:not(.p-highlight):not(.p-disabled):hover {
+                            background: #fff3e9;
+                            color: #000;
+                        }
+                    }
+
+                    .p-multiselect-empty-message {
+                        font-size: 11px;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        //** chips styles
+        &.p-multiselect-chip {
+            .p-multiselect-label {
+                padding: 2px;
+                padding-left: 5px;
+                display: flex;
+                flex-wrap: wrap;
+
+                .p-multiselect-token {
+                    padding: 3px 4px;
+                    background: #EDEDED;
+                    color: #000000;
+                    border-radius: 2px;
+                    font-size: 11px;
+                    line-height: 12px;
+
+                    .p-multiselect-token-icon {
+                        font-size: 10px;
+
+                        &:before {
+                            content: "\e924";
+                            font-family: 'mips-font' !important;
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+    }
+}
+
+p-multiselect {
+    &.p-multiselect-clearable {
+        .p-multiselect-clear-icon {
+            color: #000;
+            right: 24px;
+            font-size: 10px;
+            top: 8px;
+            height: 22px;
+            width: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-left: 1px solid #ccc;
+        }
+    }
+}
+

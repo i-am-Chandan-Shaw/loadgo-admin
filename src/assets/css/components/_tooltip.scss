@@ -1,0 +1,219 @@
+//********************white tooltip as per EMR styling****************//
+
+.p-tooltip {
+  font-family: 'open_sansregular';
+
+  &.custom-white-tooltip {
+    opacity: 1;
+    max-width: max-content;
+
+    .p-tooltip-text {
+      display: flex;
+      align-items: center;
+      width: max-content;
+      padding: 7px 10px;
+      color: $black-color;
+      text-align: left;
+      background-color: $bg-color-white;
+      border-radius: 4px;
+      font-size: 12px;
+      box-shadow: 0px 0px 5px 0px rgba(29, 29, 29, 0.26);
+    }
+
+    .p-tooltip-arrow {
+
+      &:before,
+      &:after {
+        border: solid transparent;
+        content: "";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+      }
+
+      &:after {
+        border-color: rgba(255, 255, 255, 0);
+        border-width: 5px;
+        margin-left: -5px;
+      }
+
+      &::before {
+        border-color: rgba(197, 197, 197, 0);
+        border-width: 6px;
+        margin-left: -6px;
+      }
+    }
+
+    //*************************custom rule for white bg tooltip*******************//
+    //@@@@@
+    //**********for top position tooltips*********
+    &.p-tooltip-top {
+      .p-tooltip-arrow {
+
+        &:before,
+        &:after {
+          top: -4px;
+          left: 50%;
+        }
+
+        &:after {
+          border-top-color: #fff;
+        }
+
+        &:before {
+          border-top-color: #c5c5c5;
+        }
+      }
+
+      &-start {
+        margin-left: 15px !important;
+
+        .p-tooltip-arrow {
+          left: 12% !important;
+        }
+      }
+
+      &-end {
+        margin-left: -55px !important;
+        //use arrow-right-bottom to move arrow
+        // .p-tooltip-arrow {
+        //     &:before,
+        //   &:after {
+        //     left: -45px !important;
+        //   }
+        // }
+      }
+    }
+
+    //*******for bottom positioning tooltips-=====/
+    &.p-tooltip-bottom {
+      .p-tooltip-arrow {
+        border-bottom-color: transparent;
+        top: 4px;
+
+        &:before,
+        &:after {
+          bottom: 0px;
+          left: 50%;
+        }
+
+        &:after {
+          border-bottom-color: #fff;
+        }
+
+        &:before {
+          border-bottom-color: #c5c5c5;
+        }
+      }
+
+      &.arrow-bottom-right {
+        padding: 9.5px 10px;
+
+        .p-tooltip-arrow {
+          top: 9.5px !important;
+          left: 95%;
+        }
+      }
+
+      &-start {
+        margin-left: -15px !important;
+
+        .p-tooltip-arrow {
+
+          &:before,
+          &:after {
+            left: 20px;
+          }
+        }
+      }
+
+      &-end {
+        margin-left: -45px !important;
+
+        .p-tooltip-arrow {
+
+          &:before,
+          &:after {
+            left: 45px;
+          }
+        }
+      }
+    }
+
+    &.p-tooltip-right {
+      .p-tooltip-arrow {
+        border-right-color: transparent;
+        margin-top: -8px;
+
+        &:before,
+        &:after {
+          top: 0px;
+          left: 50%;
+        }
+
+        &:after {
+          border-right-color: #fff;
+          left: -1px;
+
+        }
+
+        &:before {
+          border-right-color: #c5c5c5;
+          left: -2px;
+          top: -1px;
+        }
+      }
+    }
+
+    &.p-tooltip-left {
+      .p-tooltip-arrow {
+        border-left-color: #fff;
+
+      }
+    }
+
+    &.arrow-right-bottom {
+      .p-tooltip-arrow {
+        left: calc(100% - 15px);
+      }
+    }
+
+    &.red-tooltip {
+      .p-tooltip-text {
+        border: 1px solid #FC695C;
+        color: #FC695C;
+        font-family: 'open_sansitalic';
+        padding: 4px 8px;
+      }
+
+      .p-tooltip-arrow {
+        &:before {
+          border-top-color: #FC695C;
+        }
+      }
+
+      &.p-tooltip-top {
+        .p-tooltip-arrow:after {
+          top: -5px
+        }
+      }
+    }
+
+    &.opion-tooltip {
+      margin-top: 28px;
+      margin-left: 20px;
+
+      .p-tooltip-arrow {
+        top: 8px;
+      }
+    }
+  }
+
+  &.custom-white-tooltip.flex-col-align-start {
+    .p-tooltip-text {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}

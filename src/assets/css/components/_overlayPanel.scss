@@ -1,0 +1,26 @@
+//********************white tooltip as per EMR styling****************//
+
+.p-overlaypanel {
+  box-shadow: 0px 0px 5px 0px rgba(29, 29, 29, 0.26);
+
+  .p-overlaypanel-content {
+    padding: 9.5px 10px;
+    max-height: 100px;
+    overflow-y: auto;
+  }
+
+  &::after {
+    border-width: 7px;
+    margin-left: -7px;
+  }
+
+  &::before {
+    border-width: 4px 8px;
+    margin-left: -8px;
+  }
+
+  &::after,
+  &::before {
+    left: calc(var(--overlayArrowLeft, 0) + 0.8rem);
+  }
+}

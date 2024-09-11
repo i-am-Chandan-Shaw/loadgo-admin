@@ -1,0 +1,55 @@
+.p-dynamic-dialog {
+    &.custom-blue-modal {
+        max-height: 100%;
+
+        //** header style here
+        .p-dialog-header {
+            border-bottom: 0 none;
+            background: #2B91D9;
+            color: #fff;
+            padding: 0px 10px;
+            border-top-right-radius: 0px;
+            border-top-left-radius: 0px;
+            font-weight: 600;
+            height: 30px;
+
+            .p-dialog-title {
+                font-size: 14px;
+                font-family: 'open_sanssemibold';
+            }
+
+            .p-dialog-header-icon {
+                color: #fff;
+                width: 20px;
+                height: 20px;
+
+                &:enabled {
+                    &:hover {
+                        background-color: transparent;
+                    }
+                }
+
+                &:focus {
+                    box-shadow: none;
+                }
+
+                .p-dialog-header-close-icon {
+                    font-size: 20px;
+
+                    &:before {
+                        content: "\e925";
+                        font-family: 'mips-font' !important;
+                    }
+
+                    &:hover {
+                        color: #000;
+                    }
+                }
+            }
+        }
+
+        .p-dialog-content {
+            padding: 0px;
+        }
+    }
+}

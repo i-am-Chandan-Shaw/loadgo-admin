@@ -1,0 +1,38 @@
+//* bread crumb css goes here *****
+.section-breadcrumb {
+    padding: 5px 10px;
+    background: #FFFFFF;
+    border-width: 1px 0px;
+    border-style: solid;
+    border-color: #EDEDED;
+
+    ul {
+      gap: 25px;
+
+      li {
+        position: relative;
+        font-family: $fnt-family-bold;
+
+        &:not(:first-child) {
+          &:before {
+            content: "";
+            color: #333;
+            width: 0px;
+            height: 0px;
+            border-left: 4px solid;
+            border-bottom: 4px solid transparent;
+            border-top: 4px solid transparent;
+            position: absolute;
+            left: -13px;
+            top: 5px;
+          }
+        }
+        
+        &:not(:last-child){
+          cursor: pointer;
+          text-decoration: underline;
+        }
+        
+      }
+    }
+  }

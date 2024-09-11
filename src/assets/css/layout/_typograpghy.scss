@@ -1,0 +1,148 @@
+//************ font size classes**********//
+.fnt10Regular {
+  font-size: 10px;
+  font-family: $fnt-family-regular;
+}
+
+.fnt10Bold {
+  font-size: 10px;
+  font-family: $fnt-family-bold;
+}
+
+.fnt11Regular {
+  font-size: 11px;
+  font-family: $fnt-family-regular;
+}
+
+.fnt11Bold {
+  font-size: 11px;
+  font-family: $fnt-family-bold;
+}
+
+.fnt12Regular {
+  font-size: 12px;
+  font-family: $fnt-family-regular;
+}
+
+.fnt12Bold {
+  font-size: 12px;
+  font-family: $fnt-family-bold;
+}
+
+.fnt13Regular {
+  font-size: 13px;
+  font-family: $fnt-family-regular;
+}
+
+.fnt13Bold {
+  font-size: 13px;
+  font-family: $fnt-family-bold;
+}
+
+.fnt14 {
+  font-size: 14px;
+}
+
+.fnt14Regular {
+  font-size: 14px;
+  font-family: $fnt-family-regular;
+}
+
+.fnt14Bold {
+  font-size: 14px;
+  font-family: $fnt-family-bold;
+}
+
+.fnt16Regular {
+  font-size: 16px;
+  font-family: $fnt-family-regular;
+}
+
+.fnt16Bold {
+  font-size: 16px;
+  font-family: $fnt-family-bold;
+}
+
+.fnt24Bold {
+  font-size: 24px;
+  font-family: $fnt-family-bold;
+}
+
+.fnt28Bold {
+  font-size: 28px;
+  font-family: $fnt-family-bold;
+}
+
+.fnt32Bold {
+  font-size: 32px;
+  font-family: $fnt-family-bold;
+}
+
+.fntItalic {
+  font-style: Italic;
+  font-family: $fnt-family-Italic;
+}
+
+//font color classes
+.fntPrimaryText {
+  color: $font-primary-text;
+}
+
+.fntSecondaryText {
+  color: $bg-color-white;
+}
+
+//***************line height**********//
+
+.line-height-18 {
+  line-height: 18px;
+}
+
+.line-height-14 {
+  line-height: 14px;
+}
+
+.line-height-24 {
+  line-height: 24px;
+}
+
+.line-height-38 {
+  line-height: 38px;
+}
+
+//*****************text color and other utilities*********//
+.text-link {
+  text-decoration: underline;
+  cursor: pointer;
+  color: $primary-color;
+}
+
+.color-primary {
+  color: $primary-color;
+}
+
+.color-black {
+  color: $font-primary-text !important;
+}
+
+.color-grey {
+  color: $font-color-grey;
+}
+
+.text-underline {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.text-blue {
+  color: #2A6993;
+}
+
+.required {
+  &::after {
+    content: '*';
+    color: #FB6E6D;
+    margin-left: 2px;
+  }
+}
+

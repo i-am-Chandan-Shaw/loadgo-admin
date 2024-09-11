@@ -1,0 +1,12 @@
+.simple-lookup{
+    .browse-icon{
+        font-size: 4px;
+        color: #333333;
+    }
+    .input-group-text{
+        &:last-child{
+            padding: 0px 7px;
+            cursor: pointer;
+        }
+    }
+}
