@@ -1,0 +1,24 @@
+.pills {
+  display: flex;
+  height: 20px;
+  padding: 0px 10px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 13px;
+  font-size: 11px;
+  width: max-content;
+  font-family: 'open_sanssemibold';
+
+  &.green {
+    border: 1px solid #00915A;
+    background: #EAFFDD;
+    color: #00915A;
+  }
+
+  &.red {
+    border: 1px solid #FC695C;
+    background: #FFF0F0;
+    color: #FC695C;
+  }
+
+}

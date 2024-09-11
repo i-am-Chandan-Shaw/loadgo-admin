@@ -31,93 +31,85 @@
 
             <!-- Table Body -->
             <ng-container ecw-tbody class="ecw-child-table custom-height ">
-              <ng-template ngIf="true">
-                <ng-container *ngFor="let item of tableData; let i = index">
-                  <tr class="cursor-pointer">
-                    <td [ngStyle]="tableSettings[0]" [class.text-wrap]="tableOptions.textWrapping">
-                      <span class="text-underline truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
-                        pTooltip="{{item.pharmacyName}}" tooltipPosition="bottom"
-                        tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
-                        [textContent]="item.pharmacyName"></span>
-                    </td>
+              <ng-container *ngFor="let item of tableData; let i = index">
+                <tr class="cursor-pointer">
+                  <td [ngStyle]="tableSettings[0]" [class.text-wrap]="tableOptions.textWrapping">
+                    <span class="truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
+                      pTooltip="{{item.driverName}}" tooltipPosition="bottom"
+                      tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
+                      [textContent]="item.driverName"></span>
+                  </td>
 
-                    <td [ngStyle]="tableSettings[1]" [class.text-wrap]="tableOptions.textWrapping">
-                      <span class="text-underline truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
-                        pTooltip="{{item.manufacturer}}" tooltipPosition="bottom"
-                        tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
-                        [textContent]="item.manufacturer"></span>
-                    </td>
+                  <td [ngStyle]="tableSettings[1]" [class.text-wrap]="tableOptions.textWrapping">
+                    <span class="truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
+                      pTooltip="{{item.phone}}" tooltipPosition="bottom"
+                      tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
+                      [textContent]="item.phone"></span>
+                  </td>
 
-                    <td [ngStyle]="tableSettings[2]" [class.text-wrap]="tableOptions.textWrapping">
-                      <span class="text-underline truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
-                        pTooltip="{{item.productName}}" tooltipPosition="bottom"
-                        tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
-                        [textContent]="item.productName"></span>
-                    </td>
+                  <td [ngStyle]="tableSettings[2]" [class.text-wrap]="tableOptions.textWrapping">
+                    <span class="truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
+                      pTooltip="{{item.currentLocation}}" tooltipPosition="bottom"
+                      tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
+                      [textContent]="item.currentLocation"></span>
+                  </td>
 
-                    <td [ngStyle]="tableSettings[3]" [class.text-wrap]="tableOptions.textWrapping">
-                      <span class="text-underline truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
-                        pTooltip="{{item.ndc}}" tooltipPosition="bottom"
-                        tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
-                        [textContent]="item.ndc"></span>
-                    </td>
+                  <td [ngStyle]="tableSettings[3]" [class.text-wrap]="tableOptions.textWrapping">
+                    <span class="truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
+                      pTooltip="{{item.vehicleType}}" tooltipPosition="bottom"
+                      tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
+                      [textContent]="item.vehicleType=='tataAce'? 'Tata Ace':'Others'"></span>
+                  </td>
 
-                    <td [ngStyle]="tableSettings[4]" [class.text-wrap]="tableOptions.textWrapping">
-                      <span class="text-underline truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
-                        pTooltip="{{item.brand}}" tooltipPosition="bottom"
-                        tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
-                        [textContent]="item.brand"></span>
-                    </td>
+                  <td [ngStyle]="tableSettings[4]" [class.text-wrap]="tableOptions.textWrapping">
+                    <span class="truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
+                      pTooltip="{{item.vehicleNo}}" tooltipPosition="bottom"
+                      tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
+                      [textContent]="item.vehicleNo"></span>
+                  </td>
 
-                    <td class="text-right" [ngStyle]="tableSettings[5]" [class.text-wrap]="tableOptions.textWrapping">
-                      <span class="text-underline truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
-                        pTooltip="{{item.packageSize}}" tooltipPosition="bottom"
-                        tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
-                        [textContent]="item.packageSize"></span>
-                    </td>
+                  <td [ngStyle]="tableSettings[5]" [class.text-wrap]="tableOptions.textWrapping">
+                    <span class="truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
+                      pTooltip="{{item.rating}}" tooltipPosition="bottom"
+                      tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
+                      [textContent]="item.rating"></span>
+                  </td>
 
-                    <td class="text-right" [ngStyle]="tableSettings[6]" [class.text-wrap]="tableOptions.textWrapping">
-                      <span class="text-underline truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
-                        pTooltip="{{item.activeAccumulator}}" tooltipPosition="bottom"
-                        tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
-                        [textContent]="item.activeAccumulator"></span>
-                    </td>
+                  <td [ngStyle]="tableSettings[6]" [class.text-wrap]="tableOptions.textWrapping">
+                    <span class="truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
+                      pTooltip="{{item.totalTrips}}" tooltipPosition="bottom"
+                      tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
+                      [textContent]="item.totalTrips"></span>
+                  </td>
 
-                    <td class="text-right" [ngStyle]="tableSettings[7]" [class.text-wrap]="tableOptions.textWrapping">
-                      <span class="text-underline truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
-                        pTooltip="{{item.unitsReady}}" tooltipPosition="bottom"
-                        tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
-                        [textContent]="item.unitsReady"></span>
-                    </td>
+                  <td class="text-right" [ngStyle]="tableSettings[7]" [class.text-wrap]="tableOptions.textWrapping">
+                    <span class="truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
+                      pTooltip="{{item.date}}" tooltipPosition="bottom"
+                      tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
+                      [textContent]="item.date"></span>
+                  </td>
 
-                    <td class="text-right" [ngStyle]="tableSettings[8]" [class.text-wrap]="tableOptions.textWrapping">
-                      <span class="text-underline truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
-                        pTooltip="{{item.unitsDispensed}}" tooltipPosition="bottom"
-                        tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
-                        [textContent]="item.unitsDispensed"></span>
-                    </td>
+                  <td class="" [ngStyle]="tableSettings[8]" [class.text-wrap]="tableOptions.textWrapping">
+                    <div class="pills" [ngClass]="item.isActive?'green':'red'">
+                      <span [textContent]="item.isActive?'Online':'Offline'"></span>
+                    </div>
+                  </td>
 
-                    <td class="text-right" [ngStyle]="tableSettings[9]" [class.text-wrap]="tableOptions.textWrapping">
-                      <span class="text-underline truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
-                        pTooltip="{{item.packagePrice}}" tooltipPosition="bottom"
-                        tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
-                        [textContent]="item.packagePrice"></span>
-                    </td>
+                  <td class="" [ngStyle]="tableSettings[9]" [class.text-wrap]="tableOptions.textWrapping">
+                    <div class="pills"></div>
+                  </td>
 
-                  </tr>
-                </ng-container>
+                </tr>
+              </ng-container>
+              <ng-container *ngIf="tableData?.length == 0">
+                <tr>
+                  <td>
+                    <div class="flex align-items-center justify-content-center fs11">No records to
+                      view</div>
+                  </td>
+                </tr>
 
-
-                <ng-container *ngIf="tableData?.length == 0">
-                  <tr>
-                    <td>
-                      <div class="flex align-items-center justify-content-center fs11">No records to
-                        view</div>
-                    </td>
-                  </tr>
-
-                </ng-container>
-              </ng-template>
+              </ng-container>
             </ng-container>
 
             <ng-container buttonPanel>

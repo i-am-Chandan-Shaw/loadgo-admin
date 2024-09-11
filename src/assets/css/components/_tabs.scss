@@ -176,6 +176,7 @@
     color: #fff;
     border-right: 1px solid var(--tab-border-right-color);
     margin-bottom: -2px;
+    border-bottom: 0;
   }
 
   .p-tabview-nav:not(.custom-secondary-tab-style .p-tabview-nav, .emr-menu-item-tabs .p-tabview-nav,

@@ -19,7 +19,8 @@ import { ButtonModule } from 'primeng/button';
     OverlayPanelModule,
     DialogModule,
     SplitButtonModule,
-    ButtonModule
+    ButtonModule,
+    
   ],
   exports: [
     TooltipModule,

@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SimpleTableComponent } from './shared/components/simple-table/simple-table.component';
 import { TooltipVisibilityDirective } from './shared/directives/tooltip-visibility.directive';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -25,7 +26,7 @@ import { TooltipVisibilityDirective } from './shared/directives/tooltip-visibili
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
-
+    HttpClientModule
 
   ],
   providers: [],

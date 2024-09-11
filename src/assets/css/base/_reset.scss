@@ -78,3 +78,85 @@ p {
   font-family: 'open_sansregular';
   font-weight: 400;
 }
+
+// Scroll UI starts
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 10px;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-button {
+  background-size: 100%;
+  height: 10px;
+  width: 10px;
+  -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-button:end {
+  display: block;
+}
+
+::-webkit-scrollbar-button:start {
+  display: block;
+}
+
+::-webkit-scrollbar-button:end:vertical:decrement {
+  display: none;
+}
+
+
+::-webkit-scrollbar-button:start:vertical:increment {
+  display: none;
+}
+
+//horizontal scrollbar arrow
+::-webkit-scrollbar-button:end:horizontal:decrement,
+::-webkit-scrollbar-button:start:horizontal:increment {
+  display: none;
+}
+
+::-webkit-scrollbar-button:horizontal:increment {
+  /* Right */
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAB8SURBVHgBfZDLDYAgEERRGrAUzwQSqEA71BK0Ag8khKMdaAk2ALocTFZhmQNDNi+zH8aQtNYdI9S+H6XUGEI4hBB9FbTWLmAr53wrwc2/AMkz2ADpxjm3kyAFt6ysOz0xxiubEaVNYGkx470/i60xhOf7JEopNQVlqh38AXGlOVaBWH7XAAAAAElFTkSuQmCC')
+}
+
+::-webkit-scrollbar-button:horizontal:decrement {
+  /* Left */
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAB7SURBVHgBhZDLCYAwDIarWcARHMFzaSFOoCPohjqBQku9uoF7FIrGg1C10f+S10deQjBCxCKO8xQkpaxCCJtSClnwhABgIne01s5XPuMgY0wX1yDaqSSzpKDbaO/9tfwuEuJGD9S1Z8Ev+HW1c26l19TktlrrRvzp+fADQKUsaHdPzLQAAAAASUVORK5CYII=')
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+  /* Down */
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAGCAYAAAD68A/GAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAB1SURBVHgBdY7NCYAwDIVTu4Aj6AaeSwtxg67gZK7gBhYKPbuBK7hAwaRUiEXfJeG9Lz8AJGstwo+cc56rQsQ+53xSv8UYlwZaqXit9diFEC4CZzZq8II4Y0Y9gTFmosmdN1erQCmlo5yWpwQMEvoU/TzwQOvfX3cuq6AuU/gAAAAASUVORK5CYII=) no-repeat center;
+  background-size: 95%;
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+  /* Up */
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAGCAYAAAD68A/GAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAB0SURBVHgBdYyxCYAwEEUTj4ClfSo3sA4JnBPoCI7mCk5gEUirG9hkABcImICR48Df3L93jwPBYowZtNZtjPGmvOESAOxKqaN0epNcynV70ZRSGkMI5ydSyXu/FOacW6ksEbHLy0WlmirnJ30Fs/iJtRbLfAAWGyoJNjT94wAAAABJRU5ErkJggg==) no-repeat center;
+  background-size: 95%;
+}
+
+::-webkit-scrollbar-track {
+  background: #D6D6D6;
+  -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #989898;
+  -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #989898;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #808080;
+  -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+// Scroll UI ends
