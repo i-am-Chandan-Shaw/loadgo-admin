@@ -1,55 +1,212 @@
-.p-dynamic-dialog {
-    &.custom-blue-modal {
-        max-height: 100%;
+$modal-header-bg-color: #00915A; //#039B67
+$modal-header-heading-color: #FFF;
+$modal-header-icon-color: #FFF;
+$modal-header-close-hover-color: #000;
 
-        //** header style here
-        .p-dialog-header {
-            border-bottom: 0 none;
-            background: #2B91D9;
-            color: #fff;
-            padding: 0px 10px;
-            border-top-right-radius: 0px;
-            border-top-left-radius: 0px;
-            font-weight: 600;
-            height: 30px;
+.p-dialog {
+    // border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.30);
+    border: 1px solid #CCC;
+    background: #FFF;
 
-            .p-dialog-title {
-                font-size: 14px;
-                font-family: 'open_sanssemibold';
-            }
+    .p-dialog-content {
+        background: #FFF;
+        padding: 0;
+    }
 
-            .p-dialog-header-icon {
-                color: #fff;
+    .footer-wrapper {
+        min-height: 45px;
+    }
+
+    .p-dialog-header {
+        padding: 0px 10px;
+        background: $modal-header-bg-color;
+        color: $modal-header-heading-color;
+        justify-content: flex-start;
+        border-radius: 0px;
+        min-height: 30px;
+        font-family: 'open_sanssemibold';
+        font-weight: 600;
+        font-size: 14px;
+
+        .p-dialog-title {
+            font-size: 14px;
+        }
+
+        .p-dialog-header-icon:enabled:hover {
+            background: transparent;
+        }
+
+        .p-dialog-header-icon {
+            width: auto;
+            height: 29px;
+            margin-bottom: -1px;
+        }
+
+        .p-dialog-header-icon:focus {
+            box-shadow: none;
+        }
+
+        .p-dialog-header-close {
+            color: $modal-header-heading-color;
+            font-size: 20px;
+            speak: never;
+            font-style: normal;
+            font-weight: normal;
+            font-feature-settings: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+
+            &:before {
+                font-size: 20px;
                 width: 20px;
                 height: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                content: "\e905";
+                font-family: 'icomoon-fonts';
+            }
 
-                &:enabled {
-                    &:hover {
-                        background-color: transparent;
-                    }
-                }
-
-                &:focus {
-                    box-shadow: none;
-                }
-
-                .p-dialog-header-close-icon {
-                    font-size: 20px;
-
-                    &:before {
-                        content: "\e925";
-                        font-family: 'mips-font' !important;
-                    }
-
-                    &:hover {
-                        color: #000;
-                    }
-                }
+            &:hover {
+                color: $modal-header-close-hover-color;
             }
         }
 
-        .p-dialog-content {
+        .p-dialog-header-close-icon {
+            display: none;
+        }
+
+        .p-dialog-header-icons {
+            margin-left: auto;
+
+        }
+
+        .main-heading {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 20px;
+            margin-right: 12px;
+            color: #fff;
+            border-bottom: 0px;
             padding: 0px;
         }
+
+        .patient-name {
+            font-weight: 700;
+            font-size: 11px;
+            line-height: 14px;
+            margin-right: 13px;
+        }
+
     }
+
+    .topbar-img {
+        width: 100%;
+        height: 46px;
+    }
+
+    .p-dialog-footer {
+        padding: 10px 16px;
+        background: #FFFFFF;
+        border-top: 1px solid #CCC;
+        justify-content: flex-start;
+        border-radius: 0px;
+
+        button {
+            margin: 0px;
+        }
+    }
+
+    &.w720modal {
+        width: 720px;
+        height: 620px;
+        min-height: 620px;
+
+        .p-dialog-content {
+            overflow-y: hidden;
+        }
+    }
+
+    &.w1440modal {
+        width: 1440px;
+        height: 810px;
+        min-height: 810px;
+
+        .p-dialog-content {
+            overflow-y: hidden;
+        }
+    }
+
+    &.dynamic-height-modal {
+        min-width: 900px;
+        min-height: 720px;
+        height: calc(100vh - 53px);
+        width: 90%;
+        margin-left: 45px;
+
+        .p-dialog-content {
+            overflow-y: hidden;
+        }
+    }
+
+    &.w400modal {
+        width: 400px;
+        min-width: 400px;
+        height: auto;
+
+
+        .p-dialog-content {
+            overflow-y: hidden;
+        }
+    }
+
+    &.w420modal {
+        width: 420px;
+        min-width: 420px;
+        height: auto;
+
+
+        .p-dialog-content {
+            overflow-y: hidden;
+        }
+    }
+
+    &.w1000modal {
+        width: 1000px;
+        min-width: 1000px;
+        height: 620px;
+        min-height: 620px;
+
+
+        .p-dialog-content {
+            overflow-y: hidden;
+        }
+    }
+
+    &.w1440modal {
+        width: 1440px;
+        min-width: 1440px;
+        height: 810px;
+
+
+        .p-dialog-content {
+            overflow-y: hidden;
+        }
+    }
+
+    &.wFullmodal {
+        width: calc(100vw - 28px);
+        min-width: calc(100vw - 28px);
+        height: calc(100vh - 42px);
+        max-height: calc(100vh - 42px);
+    }
+}
+
+.p-dialog-mask {
+    background: rgba(0, 0, 0, 0.4);
 }

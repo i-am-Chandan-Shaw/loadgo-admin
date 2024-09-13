@@ -5,6 +5,13 @@
     color: #000;
   }
 
+  .p-inputtext-sm{
+    &:disabled{
+      background: #eee;
+      border-color: #ccc;
+    }
+  }
+
   .mandatory:after {
     content: "*";
     color: #FB6E6D;
@@ -139,7 +146,7 @@
     }
 
     input[type="text"] {
-      padding: 4px 2px 4px 21px;
+      padding: 4px 2px 4px 24px;
       height: 24px;
       background: #fff;
       width: 100%;
@@ -195,6 +202,14 @@
   .p-calendar-w-btn .p-inputtext {
     border-top-right-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
+  }
+
+  .p-calendar {
+    .p-button.p-button-icon-only {
+      padding: 2px 6px;
+      border: 1px solid #CCCCCC;
+      border-left: 0;
+    }
   }
 
   .p-button.p-button-icon-only {
@@ -272,7 +287,7 @@
         align-items: center;
         justify-content: center;
         content: "\e916";
-        font-family: 'ang-pharmacy-wrapper' !important;
+        font-family: 'icomoon-fonts' !important;
         color: #454545;
         vertical-align: middle;
       }
@@ -501,6 +516,14 @@
     .p-overlay {
       top: 23px !important;
       max-width: 100%;
+    }
+  }
+
+  .p-input-icon-left {
+    i {
+      margin-top: 0px;
+      top: unset;
+      left: 8px;
     }
   }
 

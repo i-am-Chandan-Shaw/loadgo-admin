@@ -8,7 +8,11 @@ import { DialogModule } from 'primeng/dialog';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
-
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
+import { ToastModule } from 'primeng/toast';
+import { CalendarModule } from 'primeng/calendar';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 @NgModule({
   imports: [
     TooltipModule,
@@ -20,7 +24,11 @@ import { ButtonModule } from 'primeng/button';
     DialogModule,
     SplitButtonModule,
     ButtonModule,
-    
+    ConfirmPopupModule,
+    ToastModule,
+    CalendarModule,
+    ConfirmDialogModule,
+    ProgressSpinnerModule
   ],
   exports: [
     TooltipModule,
@@ -31,7 +39,12 @@ import { ButtonModule } from 'primeng/button';
     OverlayPanelModule,
     DialogModule,
     SplitButtonModule,
-    ButtonModule
+    ButtonModule,
+    ConfirmPopupModule,
+    ToastModule,
+    CalendarModule,
+    ProgressSpinnerModule,
+    ConfirmDialogModule
   ],
 })
 export class primeNgModule { }

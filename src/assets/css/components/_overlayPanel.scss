@@ -24,3 +24,47 @@
     left: calc(var(--overlayArrowLeft, 0) + 0.8rem);
   }
 }
+
+/* Customizing the Confirm Dialog Box */
+.ui-confirmdialog,
+.p-confirm-dialog {
+  padding: 0;
+  font-size: 12px;
+}
+
+/* Customizing Header */
+.p-confirm-dialog {
+  .p-confirm-dialog-message {
+    margin-left: 8px;
+  }
+
+  .p-dialog-header {
+    padding: 0px 10px;
+    background-color: var(--primary-theme-color);
+    color: #fff;
+
+    .p-dialog-title {
+      font-size: 12px;
+    }
+
+
+  }
+}
+
+/* Customizing the message */
+.p-confirm-dialog .p-dialog-content {
+  padding: 16px;
+
+  .icon {
+    font-size: 16px;
+  }
+}
+
+
+.p-confirm-dialog .p-dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 8px 16px;
+  border-top: 1px solid #d6d6d6;
+}

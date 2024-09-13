@@ -1,0 +1,159 @@
+<section class="px-3 pb-4 pt-12px filter-section">
+  <div class="flex gap-3">
+    <div class="main-cont w-full">
+      <div class="item">
+        <label for="Search" class="w-60">Search</label>
+        <span class="p-input-icon-left">
+          <i class="icon-search"></i>
+          <input type="text" pInputText class="p-inputtext-sm" placeholder="Search" />
+        </span>
+      </div>
+      <div class="item">
+        <label for="Date" class="w-60">Date</label>
+        <p-calendar class="w-[125px]" placeholder="DD/MM/YYYY" [showIcon]="true" inputId="icondisplay"></p-calendar>
+      </div>
+    </div>
+    <!-- <div class="flex justify-content-end gap-2 w-full">
+      <button class="flex gap-1 align-items-center justify-content-center btn-primary">
+        <span class="icon-filter"></span>
+        <span>Filter</span>
+      </button>
+      <button disabled class="btn-secondary flex align-items-center justify-content-center">Reset
+        Filters</button>
+    </div> -->
+  </div>
+</section>
+<section class="simple-table">
+  <lib-simple-table [showLoader]="!tableDataLoaded" [tableOptions]="tableOptions" [showPagination]="false" [showPaginationPanel]="false"
+    [buttonPanel]="true" [tableHeight]="'calc(100vh - 193px)'">
+    <!-- Table Header -->
+
+    <ng-container ecw-theader class="ecw-theader" #firstTable>
+      <tr>
+        <th class="align-top " *ngFor="let item of tableSettings" [ngStyle]="item"
+          (click)="item.isSortable ? sortTable(item.jsonKey) : null"
+          [ngClass]="{'active': sorting.column === item.jsonKey, 'cursor-pointer':item.isSortable}">
+          <div class="flex  align-items-start">
+            <span class="" [textContent]="item.name"></span>
+            <span class="icon cursor-pointer ml-[3px]" *ngIf="item.isSortable">
+              <div class="sortposition" *ngIf="sorting.column !== item.jsonKey">
+                <span class="icon icon-sort"></span>
+              </div>
+              <div class="arrowsortposition   mt-2px" *ngIf="sorting.column === item.jsonKey">
+                <span class="icon icon-ascending-sort" *ngIf="sorting.direction === 'asc'"></span>
+                <span class="icon icon-descending-sort" *ngIf="sorting.direction === 'desc'"></span>
+              </div>
+            </span>
+          </div>
+        </th>
+    </ng-container>
+
+    <!-- Table Body -->
+    <ng-container ecw-tbody class="ecw-child-table custom-height ">
+      <ng-container *ngFor="let item of tableData; let i = index">
+        <tr class="cursor-pointer">
+          <td [ngStyle]="tableSettings[0]" [class.text-wrap]="tableOptions.textWrapping">
+            <span class="truncate-tooltip" [ngClass]="{'cursor-pointer':isTooltipEnable}" pTooltip="{{item.driverName}}"
+              tooltipPosition="bottom" tooltipStyleClass="custom-white-tooltip fixTooltipWidth"
+              [tooltipState]="!isTooltipEnable" (tooltipStateChange)="isTooltipEnable = $event"
+              [textContent]="item.driverName"></span>
+          </td>
+
+          <td [ngStyle]="tableSettings[1]" [class.text-wrap]="tableOptions.textWrapping">
+            <span class="truncate-tooltip" [ngClass]="{'cursor-pointer':isTooltipEnable}" pTooltip="{{item.phone}}"
+              tooltipPosition="bottom" tooltipStyleClass="custom-white-tooltip fixTooltipWidth"
+              [tooltipState]="!isTooltipEnable" (tooltipStateChange)="isTooltipEnable = $event"
+              [textContent]="item.phone"></span>
+          </td>
+
+          <td [ngStyle]="tableSettings[2]" [class.text-wrap]="tableOptions.textWrapping">
+            <span class="truncate-tooltip link-text"
+              [ngClass]="{'cursor-pointer':isTooltipEnable, 'danger':(item.currentLocation | formatAddress | async) =='Address not found'}"
+              pTooltip="{{item.currentLocation}}" tooltipPosition="bottom"
+              tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [tooltipState]="!isTooltipEnable"
+              (tooltipStateChange)="isTooltipEnable = $event" (click)="locate(item.currentLocation)"
+              [textContent]="item.currentLocation | formatAddress | async "></span>
+          </td>
+
+          <td [ngStyle]="tableSettings[3]" [class.text-wrap]="tableOptions.textWrapping">
+            <span class="truncate-tooltip" [ngClass]="{'cursor-pointer':isTooltipEnable}"
+              pTooltip="{{item.vehicleType}}" tooltipPosition="bottom"
+              tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [tooltipState]="!isTooltipEnable"
+              (tooltipStateChange)="isTooltipEnable = $event"
+              [textContent]="item.vehicleType=='tataAce'? 'Tata Ace':'Others'"></span>
+          </td>
+
+          <td [ngStyle]="tableSettings[4]" [class.text-wrap]="tableOptions.textWrapping">
+            <span class="truncate-tooltip" [ngClass]="{'cursor-pointer':isTooltipEnable}" pTooltip="{{item.vehicleNo}}"
+              tooltipPosition="bottom" tooltipStyleClass="custom-white-tooltip fixTooltipWidth"
+              [tooltipState]="!isTooltipEnable" (tooltipStateChange)="isTooltipEnable = $event"
+              [textContent]="item.vehicleNo"></span>
+          </td>
+
+          <td [ngStyle]="tableSettings[5]" [class.text-wrap]="tableOptions.textWrapping">
+            <span class="truncate-tooltip" [ngClass]="{'cursor-pointer':isTooltipEnable}" pTooltip="{{item.rating}}"
+              tooltipPosition="bottom" tooltipStyleClass="custom-white-tooltip fixTooltipWidth"
+              [tooltipState]="!isTooltipEnable" (tooltipStateChange)="isTooltipEnable = $event"
+              [textContent]="item.rating"></span>
+          </td>
+
+          <td [ngStyle]="tableSettings[6]" [class.text-wrap]="tableOptions.textWrapping">
+            <span class="truncate-tooltip" [ngClass]="{'cursor-pointer':isTooltipEnable}" pTooltip="{{item.totalTrips}}"
+              tooltipPosition="bottom" tooltipStyleClass="custom-white-tooltip fixTooltipWidth"
+              [tooltipState]="!isTooltipEnable" (tooltipStateChange)="isTooltipEnable = $event"
+              [textContent]="item.totalTrips"></span>
+          </td>
+
+          <td class="text-right" [ngStyle]="tableSettings[7]" [class.text-wrap]="tableOptions.textWrapping">
+            <span class="truncate-tooltip" [ngClass]="{'cursor-pointer':isTooltipEnable}" pTooltip="{{item.date}}"
+              tooltipPosition="bottom" tooltipStyleClass="custom-white-tooltip fixTooltipWidth"
+              [tooltipState]="!isTooltipEnable" (tooltipStateChange)="isTooltipEnable = $event"
+              [textContent]="item.date | formatDateTime"></span>
+          </td>
+
+          <td class="" [ngStyle]="tableSettings[8]" [class.text-wrap]="tableOptions.textWrapping">
+            <div class="pills" [ngClass]="item.isActive?'green':'red'">
+              <span [textContent]="item.isActive?'Online':'Offline'"></span>
+            </div>
+          </td>
+
+          <td class="" [ngStyle]="tableSettings[9]" [class.text-wrap]="tableOptions.textWrapping">
+            <div class="flex gap-1 justify-end">
+              <span class="bsquare">
+                <i class=" icon-folder" pTooltip="View Documents" (click)="openViewEditModal(item); readOnly=true "
+                  tooltipPosition="left"></i>
+              </span>
+              <span class="bsquare">
+                <i class=" icon-eye" pTooltip="View Driver" (click)="openViewEditModal(item); readOnly=true "
+                  tooltipPosition="left"></i>
+              </span>
+              <span class="bsquare">
+                <i class=" icon-edit" pTooltip="Edit Driver" (click)="openViewEditModal(item); readOnly=false "
+                  tooltipPosition="left"></i>
+              </span>
+              <span class="bsquare" (click)="confirm2($event)">
+                <i class=" icon-delete" pTooltip="Delete Driver" tooltipPosition="left"></i>
+              </span>
+
+            </div>
+
+          </td>
+
+        </tr>
+      </ng-container>
+      <ng-container *ngIf="tableData?.length == 0 && tableDataLoaded">
+        <tr>
+          <td>
+            <div class="flex align-items-center justify-content-center fs11">No records to
+              view</div>
+          </td>
+        </tr>
+
+      </ng-container>
+    </ng-container>
+  </lib-simple-table>
+</section>
+
+
+<app-view-edit-driver [selectedDriver]="selectedRow" [readOnly]="readOnly" *ngIf="isViewEditDriverVisible"
+  [visibility]="isViewEditDriverVisible" (toggleNewAuditModalVisibility)="openViewEditModal()"></app-view-edit-driver>

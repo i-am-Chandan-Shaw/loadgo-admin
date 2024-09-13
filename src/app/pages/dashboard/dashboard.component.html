@@ -1,132 +1,32 @@
 <div class="bg-primary px-[10px] py-[5px] font-bold text-[14px] text-white">Dashboard</div>
 <div class="mt-4">
-  <p-tabView styleClass="emr-primary-tabs" class="overflow-hidden " [activeIndex]="activeTabIndex">
-    <p-tabPanel header="Driver">
-      <ng-template pTemplate="content">
-        <section class="simple-table">
-          <lib-simple-table [tableOptions]="tableOptions" [showPagination]="true" [showPaginationPanel]="true"
-            [buttonPanel]="true" [tableHeight]="'calc(100vh - 172px)'">
-            <!-- Table Header -->
-
-            <ng-container ecw-theader class="ecw-theader" #firstTable>
-              <tr>
-
-                <th class="align-top " *ngFor="let item of tableSettings" [ngStyle]="item"
-                  (click)="item.isSortable ? sortTable(item.jsonKey) : null"
-                  [ngClass]="{'active': sorting.column === item.jsonKey, 'cursor-pointer':item.isSortable}">
-                  <div class="flex  align-items-start">
-                    <span class="" [textContent]="item.name"></span>
-                    <span class="icon cursor-pointer ml-[3px]" *ngIf="item.isSortable">
-                      <div class="sortposition" *ngIf="sorting.column !== item.jsonKey">
-                        <span class="icon icon-sort"></span>
-                      </div>
-                      <div class="arrowsortposition   mt-2px" *ngIf="sorting.column === item.jsonKey">
-                        <span class="icon icon-ascending-sort" *ngIf="sorting.direction === 'asc'"></span>
-                        <span class="icon icon-descending-sort" *ngIf="sorting.direction === 'desc'"></span>
-                      </div>
-                    </span>
-                  </div>
-                </th>
-            </ng-container>
-
-            <!-- Table Body -->
-            <ng-container ecw-tbody class="ecw-child-table custom-height ">
-              <ng-container *ngFor="let item of tableData; let i = index">
-                <tr class="cursor-pointer">
-                  <td [ngStyle]="tableSettings[0]" [class.text-wrap]="tableOptions.textWrapping">
-                    <span class="truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
-                      pTooltip="{{item.driverName}}" tooltipPosition="bottom"
-                      tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
-                      [textContent]="item.driverName"></span>
-                  </td>
-
-                  <td [ngStyle]="tableSettings[1]" [class.text-wrap]="tableOptions.textWrapping">
-                    <span class="truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
-                      pTooltip="{{item.phone}}" tooltipPosition="bottom"
-                      tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
-                      [textContent]="item.phone"></span>
-                  </td>
-
-                  <td [ngStyle]="tableSettings[2]" [class.text-wrap]="tableOptions.textWrapping">
-                    <span class="truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
-                      pTooltip="{{item.currentLocation}}" tooltipPosition="bottom"
-                      tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
-                      [textContent]="item.currentLocation"></span>
-                  </td>
-
-                  <td [ngStyle]="tableSettings[3]" [class.text-wrap]="tableOptions.textWrapping">
-                    <span class="truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
-                      pTooltip="{{item.vehicleType}}" tooltipPosition="bottom"
-                      tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
-                      [textContent]="item.vehicleType=='tataAce'? 'Tata Ace':'Others'"></span>
-                  </td>
-
-                  <td [ngStyle]="tableSettings[4]" [class.text-wrap]="tableOptions.textWrapping">
-                    <span class="truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
-                      pTooltip="{{item.vehicleNo}}" tooltipPosition="bottom"
-                      tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
-                      [textContent]="item.vehicleNo"></span>
-                  </td>
-
-                  <td [ngStyle]="tableSettings[5]" [class.text-wrap]="tableOptions.textWrapping">
-                    <span class="truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
-                      pTooltip="{{item.rating}}" tooltipPosition="bottom"
-                      tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
-                      [textContent]="item.rating"></span>
-                  </td>
-
-                  <td [ngStyle]="tableSettings[6]" [class.text-wrap]="tableOptions.textWrapping">
-                    <span class="truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
-                      pTooltip="{{item.totalTrips}}" tooltipPosition="bottom"
-                      tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
-                      [textContent]="item.totalTrips"></span>
-                  </td>
-
-                  <td class="text-right" [ngStyle]="tableSettings[7]" [class.text-wrap]="tableOptions.textWrapping">
-                    <span class="truncate-tooltip" [ngClass]="isTooltipEnable ? 'cursor-pointer' : ''"
-                      pTooltip="{{item.date}}" tooltipPosition="bottom"
-                      tooltipStyleClass="custom-white-tooltip fixTooltipWidth" [(tooltipState)]="!isTooltipEnable"
-                      [textContent]="item.date"></span>
-                  </td>
-
-                  <td class="" [ngStyle]="tableSettings[8]" [class.text-wrap]="tableOptions.textWrapping">
-                    <div class="pills" [ngClass]="item.isActive?'green':'red'">
-                      <span [textContent]="item.isActive?'Online':'Offline'"></span>
-                    </div>
-                  </td>
-
-                  <td class="" [ngStyle]="tableSettings[9]" [class.text-wrap]="tableOptions.textWrapping">
-                    <div class="pills"></div>
-                  </td>
-
-                </tr>
-              </ng-container>
-              <ng-container *ngIf="tableData?.length == 0">
-                <tr>
-                  <td>
-                    <div class="flex align-items-center justify-content-center fs11">No records to
-                      view</div>
-                  </td>
-                </tr>
-
-              </ng-container>
-            </ng-container>
-
-            <ng-container buttonPanel>
-              <!-- <button class="btn-primary ml-auto" [disabled]="!selectedRow">OK</button> -->
-              <button class="btn-secondary ml8">Close</button>
-            </ng-container>
-          </lib-simple-table>
-        </section>
+  <p-tabView styleClass="emr-primary-tabs" class="overflow-hidden" [(activeIndex)]="activeTabIndex">
+    <p-tabPanel header="Overview" [selected]="activeTabIndex === 0">
+      <ng-template pTemplate="header">
+        <a [routerLink]="['/overview']" (click)="activeTabIndex = 0">Overview</a>
       </ng-template>
     </p-tabPanel>
-    <p-tabPanel header="User">
-      <p>
-      </p>
+  
+    <p-tabPanel header="Driver" [selected]="activeTabIndex === 1">
+      <ng-template pTemplate="header">
+        <a [routerLink]="['/driver']" (click)="activeTabIndex = 1">Driver</a>
+      </ng-template>
     </p-tabPanel>
-    <p-tabPanel header="Trip">
-      <p>
-      </p>
+  
+    <p-tabPanel header="User" [selected]="activeTabIndex === 2">
+      <ng-template pTemplate="header">
+        <a [routerLink]="['/user']" (click)="activeTabIndex = 2">User</a>
+      </ng-template>
+    </p-tabPanel>
+  
+    <p-tabPanel header="Trip" [selected]="activeTabIndex === 3">
+      <ng-template pTemplate="header">
+        <a [routerLink]="['/trip']" (click)="activeTabIndex = 3">Trip</a>
+      </ng-template>
     </p-tabPanel>
   </p-tabView>
+  <!-- Single RouterOutlet to render tab content -->
+  <router-outlet></router-outlet>
 </div>
+<p-toast />
+<p-confirmDialog />

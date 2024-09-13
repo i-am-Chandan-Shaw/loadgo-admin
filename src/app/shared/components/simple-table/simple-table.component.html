@@ -1,7 +1,6 @@
 <div class="loader-overlay" *ngIf="showLoader" #overlay></div>
 <div class="loader-image" #loaderImage *ngIf="showLoader">
-  <img *ngIf="loaderImageName != ''" src="./assets/img/{{loaderImageName}}"
-    [ngStyle]="{'width': '64px', 'height': '64px'}" alt="Content Is Loading">
+  <p-progressSpinner styleClass="h-[44px]" strokeWidth="6" ariaLabel="loading" />
 </div>
 
 <div class="table-container" [ngClass]="{'enable-scroll-x':showXScroll}" #tableContainer>

@@ -10,6 +10,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SimpleTableComponent } from './shared/components/simple-table/simple-table.component';
 import { TooltipVisibilityDirective } from './shared/directives/tooltip-visibility.directive';
 import { HttpClientModule } from '@angular/common/http';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { DriverComponent } from './pages/driver/driver.component';
+import { UserComponent } from './pages/user/user.component';
+import { TripComponent } from './pages/trip/trip.component';
+import { FormatCoordinateAddressPipe } from './shared/pipes/format-coordinate-address.pipe';
+import { FormatDateTimePipe } from './shared/pipes/format-date-time.pipe';
+import { ViewEditDriverComponent } from './pages/modals/view-edit-driver/view-edit-driver.component';
+import { ViewDriverDocumentsComponent } from './pages/modals/view-driver-documents/view-driver-documents.component';
 
 
 
@@ -19,7 +27,14 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     DashboardComponent,
     SimpleTableComponent,
-    TooltipVisibilityDirective
+    TooltipVisibilityDirective,
+    DriverComponent,
+    UserComponent,
+    TripComponent,
+    FormatCoordinateAddressPipe,
+    FormatDateTimePipe,
+    ViewEditDriverComponent,
+    ViewDriverDocumentsComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +44,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
 
   ],
-  providers: [],
+  providers: [MessageService, ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

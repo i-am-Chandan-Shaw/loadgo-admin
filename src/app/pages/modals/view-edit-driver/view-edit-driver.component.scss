@@ -1,0 +1,48 @@
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &.view-mode {
+    input {
+      cursor: not-allowed;
+    }
+  }
+
+  .fnt13-semibold {
+    font-size: 13px;
+    font-family: 'open_sanssemibold';
+    color: #000;
+  }
+
+  .border-bottom {
+    border-bottom: 1px solid #ccc;
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 0 0 calc(25% - 10px);
+
+    input[type="radio"] {
+      margin: 0;
+      accent-color: #3D3D3D;
+      cursor: pointer;
+    }
+
+  
+  }
+
+  .gap-6px {
+    gap: 6px;
+  }
+
+  .mw-6 {
+    min-width: 50%;
+  }
+
+  .ml-2px {
+    margin-left: 2px !important;
+  }
+}
