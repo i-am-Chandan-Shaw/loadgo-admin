@@ -5,48 +5,52 @@
   </ng-template>
 
   <ng-template pTemplate="content">
-    <section class="p-3 modal-body" [ngClass]="{'view-mode':readOnly}" *ngIf="selectedDriver">
+    <section class="p-4 modal-body" [ngClass]="{'view-mode':readOnly}" *ngIf="selectedDriver">
 
       <div class="border-bottom flex flex-col pb-4 gap-3">
         <div class="fnt13-semibold">Basic Details</div>
         <div class="flex gap-3">
           <div class="item">
             <label for="">Name</label>
-            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm" [(ngModel)]="selectedDriver.driverName"
-              placeholder="" />
+            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm"
+              [(ngModel)]="selectedDriver.driverName" placeholder="" />
           </div>
           <div class="item">
             <label for="">Phone</label>
-            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm" [(ngModel)]="selectedDriver.phone" placeholder="" />
+            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm"
+              [(ngModel)]="selectedDriver.phone" placeholder="" />
           </div>
           <div class="item">
             <label for="">Email</label>
-            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm" [(ngModel)]="selectedDriver.email" placeholder="" />
+            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm"
+              [(ngModel)]="selectedDriver.email" placeholder="" />
           </div>
           <div class="item">
             <label for="">Driver ID</label>
-            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm" [(ngModel)]="selectedDriver.id" placeholder="" />
+            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm" [(ngModel)]="selectedDriver.id"
+              placeholder="" />
           </div>
         </div>
         <div class="flex gap-3">
           <div class="item">
             <label for="">Vehicle Name</label>
-            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm" [(ngModel)]="selectedDriver.vehicleType"
-              placeholder="" />
+            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm"
+              [(ngModel)]="selectedDriver.vehicleType" placeholder="" />
           </div>
           <div class="item">
             <label for="">Vehicle No.</label>
-            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm" [(ngModel)]="selectedDriver.vehicleNo"
-              placeholder="" />
+            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm"
+              [(ngModel)]="selectedDriver.vehicleNo" placeholder="" />
           </div>
           <div class="item">
             <label for="">Total Trips</label>
-            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm" [(ngModel)]="selectedDriver.totalTrips"
-              placeholder="" />
+            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm"
+              [(ngModel)]="selectedDriver.totalTrips" placeholder="" />
           </div>
           <div class="item">
             <label for="input1">Ratings</label>
-            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm" [(ngModel)]="selectedDriver.rating" placeholder="" />
+            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm"
+              [(ngModel)]="selectedDriver.rating" placeholder="" />
           </div>
         </div>
       </div>
@@ -56,34 +60,35 @@
         <div class="flex gap-3">
           <div class="item">
             <label for="">Account Holder Name</label>
-            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm" [(ngModel)]="selectedDriver.accountHolderName"
-              placeholder="" />
+            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm"
+              [(ngModel)]="selectedDriver.accountHolderName" placeholder="" />
           </div>
           <div class="item">
             <label for="">Bank Name</label>
-            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm" [(ngModel)]="selectedDriver.bankName" placeholder="" />
+            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm"
+              [(ngModel)]="selectedDriver.bankName" placeholder="" />
           </div>
           <div class="item">
             <label for="">Account No.</label>
-            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm" [(ngModel)]="selectedDriver.accountNumber"
-              placeholder="" />
+            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm"
+              [(ngModel)]="selectedDriver.accountNumber" placeholder="" />
           </div>
           <div class="item">
             <label for="">Account Type</label>
-            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm" [(ngModel)]="selectedDriver.accountType"
-              placeholder="" />
+            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm"
+              [(ngModel)]="selectedDriver.accountType" placeholder="" />
           </div>
         </div>
         <div class="flex gap-3">
           <div class="item">
             <label for="">IFSC Code</label>
-            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm" [(ngModel)]="selectedDriver.swiftCode"
-              placeholder="" />
+            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm"
+              [(ngModel)]="selectedDriver.swiftCode" placeholder="" />
           </div>
           <div class="item">
             <label for="">Branch Name</label>
-            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm" [(ngModel)]="selectedDriver.branchName"
-              placeholder="" />
+            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm"
+              [(ngModel)]="selectedDriver.branchName" placeholder="" />
           </div>
 
         </div>
@@ -94,36 +99,40 @@
         <div class="flex gap-3">
           <div class="item">
             <label for="">Invite Code</label>
-            <input type="text" [disabled]="false" pInputText class="p-inputtext-sm" [(ngModel)]="selectedDriver.inviteCode"
-              placeholder="" />
+            <input type="text" [disabled]="true" pInputText class="p-inputtext-sm"
+              [(ngModel)]="selectedDriver.inviteCode" placeholder="" />
           </div>
           <div class="item">
             <label for="">Verification Status</label>
-            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm" [(ngModel)]="selectedDriver.isVerified" placeholder="" />
+            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm"
+              [(ngModel)]="selectedDriver.isVerified" placeholder="" />
           </div>
           <div class="item">
             <label for="">Referred By</label>
-            <input type="text" [disabled]="true" pInputText class="p-inputtext-sm" [(ngModel)]="selectedDriver.refferedBy"
-              placeholder="" />
+            <input type="text" [disabled]="true" pInputText class="p-inputtext-sm"
+              [(ngModel)]="selectedDriver.refferedBy" placeholder="" />
           </div>
           <div class="item">
             <label for="">Date Created</label>
-            <input type="text" [disabled]="true" pInputText class="p-inputtext-sm" [(ngModel)]="selectedDriver.date" placeholder="" />
+            <input type="text" [disabled]="true" pInputText class="p-inputtext-sm" [(ngModel)]="selectedDriver.date"
+              placeholder="" />
           </div>
         </div>
         <div class="flex gap-3">
           <div class="item">
             <label for="">Push Token</label>
-            <input type="text"  pInputText class="p-inputtext-sm" disabled [(ngModel)]="selectedDriver.pushToken "
+            <input type="text" pInputText class="p-inputtext-sm" disabled [(ngModel)]="selectedDriver.pushToken "
               [value]="" placeholder="" />
           </div>
           <div class="item">
             <label for="">Active Status</label>
-            <p-dropdown [disabled]="readOnly" class="w-full"  [options]="activeStatus" optionLabel="name" [(ngModel)]="selectedStatus" ></p-dropdown>
+            <p-dropdown [disabled]="readOnly" class="w-full" [options]="activeStatus" optionLabel="name"
+              [(ngModel)]="selectedStatus"></p-dropdown>
           </div>
           <div class="item">
             <label for="">City</label>
-            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm" [(ngModel)]="selectedDriver.city" placeholder="" />
+            <input type="text" [disabled]="readOnly" pInputText class="p-inputtext-sm" [(ngModel)]="selectedDriver.city"
+              placeholder="" />
           </div>
 
         </div>
@@ -136,9 +145,13 @@
     </section>
   </ng-template>
   <ng-template pTemplate="footer">
-    <div class="flex align-middle justify-end gap-2">
-      <button class="btn btn-primary" (click)="addNewAudit()" [disabled]="!enableSave">Update</button>
-      <button (click)="closeModal()" class="btn btn-secondary ml8">Cancel</button>
+    <div class="flex align-middle justify-between ">
+      <button (click)="readOnly=!readOnly" class="btn btn-secondary "
+        [textContent]="readOnly?'Edit':'Discard'"></button>
+      <div class="flex align-middle gap-2">
+        <button class="btn btn-primary" (click)="updateData()" *ngIf="!readOnly">Update</button>
+        <button (click)="closeModal()" class="btn btn-secondary ">Cancel</button>
+      </div>
     </div>
   </ng-template>
 </p-dialog>

@@ -20,7 +20,6 @@ export class DriverComponent implements OnInit {
     showPagination: false,
     textWrapping: false,
   };
-  readOnly = false
   sorting = {
     column: 'date',
     direction: 'desc',
@@ -147,7 +146,7 @@ export class DriverComponent implements OnInit {
     this.helper.openGoogleMaps(location)
   }
 
-  confirm2(event: Event) {
+  openConfirmation(event: Event) {
 
     this.confirmationService.confirm({
       target: event.target as EventTarget,
@@ -174,5 +173,15 @@ export class DriverComponent implements OnInit {
     this.selectedRow = item
     this.isViewEditDriverVisible = !this.isViewEditDriverVisible
   }
+
+  // View Documents
+
+  isDriverDocModalOpen = false
+  openViewDocumentModal(item?: Driver) {
+    this.selectedRow = item
+    this.isDriverDocModalOpen = !this.isDriverDocModalOpen
+  }
+
+
 
 }

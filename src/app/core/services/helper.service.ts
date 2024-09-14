@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { catchError, map, Observable } from "rxjs";
+import { environment } from "src/environments/environment.development";
 
 @Injectable({ providedIn: 'root' })
 
@@ -9,7 +10,7 @@ import { catchError, map, Observable } from "rxjs";
 
 export class HelperService {
   constructor(private http: HttpClient) { }
-  private GOOGLE_MAPS_API_KEY = 'AIzaSyA_eWdbyZ8ZtNBuuuSty4PSpnArQ_5wOtk';
+  private GOOGLE_MAPS_API_KEY = environment.googleApiKey;
 
   getAddressFromCoordinates(latitude: string, longitude: string): Observable<string> {
     const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${this.GOOGLE_MAPS_API_KEY}`;

@@ -1,0 +1,61 @@
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+  height: 543px;
+
+  .fnt13-semibold {
+    font-size: 13px;
+    font-family: 'open_sanssemibold';
+    color: #000;
+  }
+
+  .border-bottom {
+    border-bottom: 1px solid #ccc;
+  }
+
+  .upload-cont {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    padding: 32px 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    border: 1px dashed #57A5C4;
+    background: #F1FBFF;
+    cursor: pointer;
+
+    .icon-upload{
+      font-size: 30px;
+    }
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 4px;
+    flex: 0 0 calc(50% - 8px);
+    align-items: center;
+
+    .btn {
+      cursor: pointer;
+    }
+  }
+
+  .gap-6px {
+    gap: 6px;
+  }
+
+  .mw-6 {
+    min-width: 50%;
+  }
+
+  .ml-2px {
+    margin-left: 2px !important;
+  }
+}

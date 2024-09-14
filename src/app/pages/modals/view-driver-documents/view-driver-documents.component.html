@@ -1,1 +1,140 @@
-<p>view-driver-documents works!</p>
+<p-dialog header="Header" [(visible)]="visibility" [modal]="true" styleClass="w720modal" class="" [draggable]="false"
+  [resizable]="false" [closable]="true" (onHide)="closeModal()" [closeOnEscape]="closeDialog">
+  <ng-template pTemplate="header">
+    <span class="main-heading"> Driver's Document ({{driverDocumentStatus}}) </span>
+  </ng-template>
+
+  <ng-template pTemplate="content">
+    <section class="p-4 modal-body" *ngIf="selectedDriver">
+
+      <div class="border-bottom flex flex-col pb-4 gap-3">
+        <div class="fnt13-semibold">Aadhar Card</div>
+        <div class="flex gap-4">
+          <div class="item">
+            <a *ngIf="selectedDriver.aadharFront.length" [href]="selectedDriver.aadharFront" target="_blank">
+              <img width="250px" [src]="selectedDriver.aadharFront" alt="Aadhar Front Pic">
+            </a>
+
+            <label *ngIf="!selectedDriver.aadharFront.length" for="upAadharFront" class="upload-cont">
+              <span class="icon-upload"></span>
+              <div>Upload Pic</div>
+            </label>
+
+            <label *ngIf="selectedDriver.aadharFront.length" for="upAadharFront" class="btn-secondary btn  mt-2"
+              accept="image/*">Re-Upload Pic</label>
+            <input type="file" name="" class="hidden" id="upAadharFront"
+              (change)="onFileSelected($event,selectedDriver, 'aadharFront')">
+
+          </div>
+          <div class="item">
+            <a *ngIf="selectedDriver.aadharBack.length" [href]="selectedDriver.aadharBack" target="_blank">
+              <img width="250px" [src]="selectedDriver.aadharBack" alt="Aadhar Front Pic">
+            </a>
+
+            <label *ngIf="!selectedDriver.aadharBack.length" for="upAadharBack" class="upload-cont">
+              <span class="icon-upload"></span>
+              <div>Upload Pic</div>
+            </label>
+
+            <label *ngIf="selectedDriver.aadharBack.length" for="upAadharBack" class="btn-secondary btn  mt-2"
+              accept="image/*">Re-Upload Pic</label>
+            <input type="file" name="" class="hidden" id="upAadharBack"
+              (change)="onFileSelected($event,selectedDriver, 'aadharBack')">
+
+          </div>
+
+        </div>
+      </div>
+      <div class="border-bottom flex flex-col pb-4 gap-3">
+        <div class="fnt13-semibold">Driving License</div>
+        <div class="flex gap-4">
+          <div class="item">
+            <a *ngIf="selectedDriver.dlFront.length" [href]="selectedDriver.dlFront" target="_blank">
+              <img width="250px" [src]="selectedDriver.dlFront" alt="Aadhar Front Pic">
+            </a>
+
+            <label *ngIf="!selectedDriver.dlFront.length" for="updlFront" class="upload-cont">
+              <span class="icon-upload"></span>
+              <div>Upload Pic</div>
+            </label>
+
+            <label *ngIf="selectedDriver.dlFront.length" for="updlFront" class="btn-secondary btn  mt-2"
+              accept="image/*">Re-Upload Pic</label>
+            <input type="file" name="" class="hidden" id="updlFront"
+              (change)="onFileSelected($event,selectedDriver, 'dlFront')">
+
+          </div>
+          <div class="item">
+            <a *ngIf="selectedDriver.dlBack.length" [href]="selectedDriver.dlBack" target="_blank">
+              <img width="250px" [src]="selectedDriver.dlBack" alt="Aadhar Front Pic">
+            </a>
+
+            <label *ngIf="!selectedDriver.dlBack.length" for="updlBack" class="upload-cont">
+              <span class="icon-upload"></span>
+              <div>Upload Pic</div>
+            </label>
+
+            <label *ngIf="selectedDriver.dlBack.length" for="updlBack" class="btn-secondary btn  mt-2"
+              accept="image/*">Re-Upload Pic</label>
+            <input type="file" name="" class="hidden" id="updlBack"
+              (change)="onFileSelected($event,selectedDriver, 'dlBack')">
+
+          </div>
+
+        </div>
+
+      </div>
+      <div class=" flex flex-col pb-4 gap-3">
+        <div class="fnt13-semibold">Registration Certificate</div>
+        <div class="flex gap-4">
+          <div class="item">
+            <a *ngIf="selectedDriver.rcFront.length" [href]="selectedDriver.rcFront" target="_blank">
+              <img width="250px" [src]="selectedDriver.rcFront" alt="Aadhar Front Pic">
+            </a>
+
+            <label *ngIf="!selectedDriver.rcFront.length" for="uprcFront" class="upload-cont">
+              <span class="icon-upload"></span>
+              <div>Upload Pic</div>
+            </label>
+
+            <label *ngIf="selectedDriver.rcFront.length" for="uprcFront" class="btn-secondary btn  mt-2"
+              accept="image/*">Re-Upload Pic</label>
+            <input type="file" name="" class="hidden" id="uprcFront"
+              (change)="onFileSelected($event,selectedDriver, 'rcFront')">
+
+          </div>
+          <div class="item">
+            <a *ngIf="selectedDriver.rcBack.length" [href]="selectedDriver.rcBack" target="_blank">
+              <img width="250px" [src]="selectedDriver.rcBack" alt="Aadhar Front Pic">
+            </a>
+
+            <label *ngIf="!selectedDriver.rcBack.length" for="uprcBack" class="upload-cont">
+              <span class="icon-upload"></span>
+              <div>Upload Pic</div>
+            </label>
+
+            <label *ngIf="selectedDriver.rcBack.length" for="uprcBack" class="btn-secondary btn  mt-2"
+              accept="image/*">Re-Upload Pic</label>
+            <input type="file" name="" class="hidden" id="uprcBack"
+              (change)="onFileSelected($event,selectedDriver, 'rcBack')">
+
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+    <section class="flex align-middle justify-center w-full h-full" *ngIf="!selectedDriver">
+      <p-progressSpinner styleClass="h-[44px]" strokeWidth="6" ariaLabel="loading" />
+    </section>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <div class="flex align-middle justify-end gap-2">
+      <button *ngIf="selectedDriver?.isVerified!=='3'" (click)="setVerificationStatus('3')"
+        class="btn btn-primary ">Approve</button>
+      <button *ngIf="selectedDriver?.isVerified=='3'" (click)="setVerificationStatus('4')"
+        class="btn btn-primary ">Reject</button>
+      <button (click)="closeModal()" class="btn btn-secondary ">Cancel</button>
+    </div>
+  </ng-template>
+</p-dialog>

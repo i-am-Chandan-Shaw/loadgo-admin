@@ -13,21 +13,12 @@
         <p-calendar class="w-[125px]" placeholder="DD/MM/YYYY" [showIcon]="true" inputId="icondisplay"></p-calendar>
       </div>
     </div>
-    <!-- <div class="flex justify-content-end gap-2 w-full">
-      <button class="flex gap-1 align-items-center justify-content-center btn-primary">
-        <span class="icon-filter"></span>
-        <span>Filter</span>
-      </button>
-      <button disabled class="btn-secondary flex align-items-center justify-content-center">Reset
-        Filters</button>
-    </div> -->
   </div>
 </section>
 <section class="simple-table">
-  <lib-simple-table [showLoader]="!tableDataLoaded" [tableOptions]="tableOptions" [showPagination]="false" [showPaginationPanel]="false"
-    [buttonPanel]="true" [tableHeight]="'calc(100vh - 193px)'">
+  <lib-simple-table [showLoader]="!tableDataLoaded" [tableOptions]="tableOptions" [showPagination]="false"
+    [showPaginationPanel]="false" [buttonPanel]="true" [tableHeight]="'calc(100vh - 164px)'">
     <!-- Table Header -->
-
     <ng-container ecw-theader class="ecw-theader" #firstTable>
       <tr>
         <th class="align-top " *ngFor="let item of tableSettings" [ngStyle]="item"
@@ -120,18 +111,14 @@
           <td class="" [ngStyle]="tableSettings[9]" [class.text-wrap]="tableOptions.textWrapping">
             <div class="flex gap-1 justify-end">
               <span class="bsquare">
-                <i class=" icon-folder" pTooltip="View Documents" (click)="openViewEditModal(item); readOnly=true "
+                <i class=" icon-folder" pTooltip="View Documents" (click)="openViewDocumentModal(item);  "
                   tooltipPosition="left"></i>
               </span>
               <span class="bsquare">
-                <i class=" icon-eye" pTooltip="View Driver" (click)="openViewEditModal(item); readOnly=true "
+                <i class=" icon-eye" pTooltip="View Driver" (click)="openViewEditModal(item); "
                   tooltipPosition="left"></i>
               </span>
-              <span class="bsquare">
-                <i class=" icon-edit" pTooltip="Edit Driver" (click)="openViewEditModal(item); readOnly=false "
-                  tooltipPosition="left"></i>
-              </span>
-              <span class="bsquare" (click)="confirm2($event)">
+              <span class="bsquare" (click)="openConfirmation($event)">
                 <i class=" icon-delete" pTooltip="Delete Driver" tooltipPosition="left"></i>
               </span>
 
@@ -155,5 +142,9 @@
 </section>
 
 
-<app-view-edit-driver [selectedDriver]="selectedRow" [readOnly]="readOnly" *ngIf="isViewEditDriverVisible"
+<app-view-edit-driver [selectedDriver]="selectedRow"  *ngIf="isViewEditDriverVisible"
   [visibility]="isViewEditDriverVisible" (toggleNewAuditModalVisibility)="openViewEditModal()"></app-view-edit-driver>
+
+<app-view-driver-documents [selectedDriver]="selectedRow" *ngIf="isDriverDocModalOpen"
+  [visibility]="isDriverDocModalOpen"
+  (toggleNewAuditModalVisibility)="openViewDocumentModal()"></app-view-driver-documents>

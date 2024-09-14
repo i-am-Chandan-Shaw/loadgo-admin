@@ -1,4 +1,5 @@
 export interface Driver {
+  [key: string]: any;
   id: string;
   driverName: string;
   email: string;

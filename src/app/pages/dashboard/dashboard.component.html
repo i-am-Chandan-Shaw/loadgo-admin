@@ -1,7 +1,7 @@
 <div class="bg-primary px-[10px] py-[5px] font-bold text-[14px] text-white">Dashboard</div>
 <div class="mt-4">
   <p-tabView styleClass="emr-primary-tabs" class="overflow-hidden" [(activeIndex)]="activeTabIndex">
-    <p-tabPanel header="Overview" [selected]="activeTabIndex === 0">
+    <p-tabPanel header="Overview" [selected]="activeTabIndex === 0" [disabled]="true">
       <ng-template pTemplate="header">
         <a [routerLink]="['/overview']" (click)="activeTabIndex = 0">Overview</a>
       </ng-template>

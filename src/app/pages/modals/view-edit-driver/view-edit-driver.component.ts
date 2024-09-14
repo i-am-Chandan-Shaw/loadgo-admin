@@ -9,16 +9,15 @@ import { Driver } from 'src/app/shared/models/interface';
 export class ViewEditDriverComponent implements OnInit {
   @Input() selectedDriver: Driver | undefined
   @Input() visibility = true;
-  @Input() readOnly = false
+  readOnly = true
   @Output() toggleNewAuditModalVisibility = new EventEmitter();
   activeStatus = [
     { name: 'Active', value: 'active' },
     { name: 'Inactive', value: 'inactive' },
   ];
 
-  selectedStatus=this.activeStatus[0]
+  selectedStatus = this.activeStatus[0]
 
-  enableSave = false
 
   closeDialog = false;
   constructor(
@@ -26,17 +25,16 @@ export class ViewEditDriverComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if(this.selectedDriver?.isActive){
-      this.selectedStatus=this.activeStatus[0]
-    }else{
-      this.selectedStatus=this.activeStatus[1]
+    if (this.selectedDriver?.isActive) {
+      this.selectedStatus = this.activeStatus[0]
+    } else {
+      this.selectedStatus = this.activeStatus[1]
     }
 
   }
 
-  addNewAudit() {
-    this.visibility = false
-    this.toggleNewAuditModalVisibility.emit(false);
+  updateData() {
+    this.closeModal()
 
   }
   closeModal() {
