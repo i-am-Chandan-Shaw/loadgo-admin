@@ -38,3 +38,18 @@ export interface Location {
   lat: string;
   lng: string;
 }
+
+
+export interface User {
+  id: string;
+  name: string;
+  loginPin: string;
+  phone: string;
+  email: string;
+  inviteCode: string;
+  referredBy: string;
+  pushToken: string;
+  CreatedOn: string;
+  IsDeleted: string;
+  currentLocation: Location
+}

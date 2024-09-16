@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ApiService } from 'src/app/core/services/api.service';
 import { HelperService } from 'src/app/core/services/helper.service';
-import { Driver } from 'src/app/shared/models/interface';
+import { User } from 'src/app/shared/models/interface';
 
 @Component({
   selector: 'app-user',
@@ -10,9 +10,9 @@ import { Driver } from 'src/app/shared/models/interface';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-  tableDataOriginal: Driver[] = []
+  tableDataOriginal: User[] = []
   isTooltipEnable = false;
-  selectedRow: Driver | undefined
+  selectedRow: User | undefined
   tableDataLoaded = false
   tableData = this.tableDataOriginal;
   tableOptions = {
@@ -39,97 +39,72 @@ export class UserComponent implements OnInit {
     this.tableData = this.helper.sortData(this.tableData, column, this.sorting.direction) // service return sorted array
   }
 
-  tableSettings = [
+  tableSettings  = [
     {
       name: 'Name',
       isSortable: true,
-      id: 'col0',
-      width: '149px',
-      'max-width': '149px',
-      jsonKey: 'driverName',
+      width: '',
+      'max-width': '',
+      jsonKey: 'name',
+    },
+    {
+      name: 'Login Pin',
+      isSortable: false,
+      width: '100px',
+      'max-width': '100px',
+      jsonKey: 'loginPin',
     },
     {
       name: 'Phone No.',
       isSortable: false,
-      id: 'col1',
-      width: '110px',
-      'max-width': '110px',
+      width: '130px',
+      'max-width': '130px',
       jsonKey: 'phone',
+    },
+    {
+      name: 'Email',
+      isSortable: true,
+      width: '200px',
+      'max-width': '200px',
+      jsonKey: 'email',
+    },
+    {
+      name: 'Invite Code',
+      isSortable: false,
+      width: '120px',
+      'max-width': '120px',
+      jsonKey: 'inviteCode',
+    },
+    {
+      name: 'Referred By',
+      isSortable: false,
+      width: '150px',
+      'max-width': '150px',
+      jsonKey: 'referredBy',
+    },
+    {
+      name: 'Created On',
+      isSortable: true,
+      width: '120px',
+      'max-width': '120px',
+      jsonKey: 'CreatedOn',
     },
     {
       name: 'Location',
       isSortable: false,
-      id: 'col2',
       width: '',
-      'min-width': '',
       'max-width': '',
       jsonKey: 'currentLocation',
     },
     {
-      name: 'Vehicle Name',
-      isSortable: false,
-      id: 'col3',
-      width: '120px',
-      'min-width': '',
-      'max-width': '120px',
-      jsonKey: 'vehicleType',
-    },
-    {
-      name: 'Vehicle No',
-      isSortable: false,
-      id: 'col4',
-      width: '120px',
-      'min-width': '',
-      'max-width': '120px',
-      jsonKey: 'vehicleNo',
-    },
-    {
-      name: 'Rating',
-      isSortable: true,
-      id: 'col5',
-      width: '80px',
-      'min-width': '',
-      'max-width': '80px',
-      jsonKey: 'rating',
-    },
-    {
-      name: 'Total Trip',
-      isSortable: true,
-      id: 'col6',
-      width: '90px',
-      'min-width': '',
-      'max-width': '90px',
-      jsonKey: 'totalTrips',
-    },
-    {
-      name: 'Date',
-      isSortable: true,
-      id: 'col7',
-      width: '90px',
-      'min-width': '',
-      'max-width': '90px',
-      jsonKey: 'date',
-    },
-    {
-      name: 'Status',
-      isSortable: true,
-      id: 'col8',
-      width: '80px',
-      'min-width': '',
-      'max-width': '80px',
-      jsonKey: 'isActive',
-    },
-    {
       name: 'Option',
       isSortable: false,
-      id: 'col9',
-      width: '110px',
-      'min-width': '',
-      'max-width': '110px',
-      jsonKey: 'option',
+      width: '90px',
+      'max-width': '90px',
+      jsonKey: 'currentLocation',
     },
-
   ];
+  
 
   constructor(private apiService: ApiService, private confirmationService: ConfirmationService, private messageService: MessageService, private helper: HelperService) { }
 
@@ -138,7 +113,7 @@ export class UserComponent implements OnInit {
       (res) => {
         this.tableData = res;
         console.log(res);
-        
+
         this.tableDataLoaded = true
         this.tableData = this.helper.sortData(this.tableData, 'date', this.sorting.direction)
       }
@@ -172,7 +147,7 @@ export class UserComponent implements OnInit {
 
 
   isViewEditDriverVisible = false
-  openViewEditModal(item?: Driver) {
+  openViewEditModal(item?: User) {
     this.selectedRow = item
     this.isViewEditDriverVisible = !this.isViewEditDriverVisible
   }
@@ -180,7 +155,7 @@ export class UserComponent implements OnInit {
   // View Documents
 
   isDriverDocModalOpen = false
-  openViewDocumentModal(item?: Driver) {
+  openViewDocumentModal(item?: User) {
     this.selectedRow = item
     this.isDriverDocModalOpen = !this.isDriverDocModalOpen
   }

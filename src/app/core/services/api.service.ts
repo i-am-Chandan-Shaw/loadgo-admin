@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Driver } from "src/app/shared/models/interface";
+import { Driver, User } from "src/app/shared/models/interface";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment.development";
@@ -17,9 +17,9 @@ export class ApiService {
     return this.http.get<Driver[]>(api)
   }
 
-  public getAllUsers(): Observable<Driver[]> {
+  public getAllUsers(): Observable<User[]> {
     const api = this.baseApiUrl + 'getUser.php'
-    return this.http.get<Driver[]>(api)
+    return this.http.get<User[]>(api)
   }
 
 }

@@ -1,24 +1,25 @@
 <div class="bg-primary px-[10px] py-[5px] font-bold text-[14px] text-white">Dashboard</div>
 <div class="mt-4">
-  <p-tabView styleClass="emr-primary-tabs" class="overflow-hidden" [(activeIndex)]="activeTabIndex">
+  <p-tabView styleClass="emr-primary-tabs" class="overflow-hidden" [(activeIndex)]="activeTabIndex"
+    (activeIndexChange)="onTabChange($event)">
     <p-tabPanel header="Overview" [selected]="activeTabIndex === 0" [disabled]="true">
       <ng-template pTemplate="header">
         <a [routerLink]="['/overview']" (click)="activeTabIndex = 0">Overview</a>
       </ng-template>
     </p-tabPanel>
-  
+
     <p-tabPanel header="Driver" [selected]="activeTabIndex === 1">
       <ng-template pTemplate="header">
         <a [routerLink]="['/driver']" (click)="activeTabIndex = 1">Driver</a>
       </ng-template>
     </p-tabPanel>
-  
+
     <p-tabPanel header="User" [selected]="activeTabIndex === 2">
       <ng-template pTemplate="header">
         <a [routerLink]="['/user']" (click)="activeTabIndex = 2">User</a>
       </ng-template>
     </p-tabPanel>
-  
+
     <p-tabPanel header="Trip" [selected]="activeTabIndex === 3">
       <ng-template pTemplate="header">
         <a [routerLink]="['/trip']" (click)="activeTabIndex = 3">Trip</a>
