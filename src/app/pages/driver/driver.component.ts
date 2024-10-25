@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { debounceTime, distinctUntilChanged, map, Subject } from 'rxjs';
 import { ApiService } from 'src/app/core/services/api.service';
 import { HelperService } from 'src/app/core/services/helper.service';
 import { Driver } from 'src/app/shared/models/interface';
@@ -9,34 +10,6 @@ import { Driver } from 'src/app/shared/models/interface';
   styleUrls: ['./driver.component.scss']
 })
 export class DriverComponent implements OnInit {
-  tableDataOriginal: Driver[] = []
-  isTooltipEnable = false;
-  selectedRow: Driver | undefined
-  tableDataLoaded = false
-  tableData = this.tableDataOriginal;
-  tableOptions = {
-    draggable: false,
-    paginationLimit: 10,
-    showPagination: false,
-    textWrapping: false,
-  };
-  sorting = {
-    column: 'date',
-    direction: 'desc',
-  }
-
-  sortTable(column: string): void {
-
-    if (this.sorting.column === column) {
-      this.sorting.direction =
-        this.sorting.direction === 'desc' ? 'asc' : 'desc'
-    } else {
-      this.sorting.column = column
-      this.sorting.direction = 'desc'
-    }
-
-    this.tableData = this.helper.sortData(this.tableData, column, this.sorting.direction) // service return sorted array
-  }
 
   tableSettings = [
     {
@@ -130,24 +103,85 @@ export class DriverComponent implements OnInit {
 
   ];
 
+  tableDataOriginal: Driver[] = [];  // Original table data
+  tableData: Driver[] = [];          // Displayed table data
+  isTooltipEnable = false;
+  selectedRow: Driver | undefined;
+  tableDataLoaded = false;
+
+  // Search related properties
+  searchTerm: string = '';
+  searchSubject: Subject<string> = new Subject<string>();
+
+  // Table options and settings
+  tableOptions = {
+    draggable: false,
+    paginationLimit: 10,
+    showPagination: false,
+    textWrapping: false,
+  };
+
+  sorting = {
+    column: 'date',
+    direction: 'desc',
+  };
+
+
+
   constructor(private apiService: ApiService, private confirmationService: ConfirmationService, private messageService: MessageService, private helper: HelperService) { }
 
   ngOnInit(): void {
+    // Fetching all drivers
     this.apiService.getAllDrivers().subscribe(
-      (res) => {
-        this.tableData = res;
-        this.tableDataLoaded = true
-        this.tableData = this.helper.sortData(this.tableData, 'date', this.sorting.direction)
+      (res: Driver[]) => {
+        this.tableDataOriginal = res;
+        this.tableDataLoaded = true;
+        this.tableData = this.helper.sortData(this.tableDataOriginal, 'date', this.sorting.direction);
+
+        // Subscribe to search functionality with debouncing
+        this.searchSubject.pipe(
+          debounceTime(300),  // Delay of 300ms before searching
+          distinctUntilChanged(),  // Only trigger search if term changes
+          map((term: string) => term.toLowerCase())  // Normalize the search term
+        ).subscribe(term => {
+          this.tableData = this.filterTableData(term);
+        });
       }
-    )
+    );
+  }
+
+  // Function to handle search input changes
+  onSearch(searchValue: string): void {
+    this.searchSubject.next(searchValue);
+  }
+
+  // Function to filter table data based on the search term
+  filterTableData(term: string): Driver[] {
+    if (!term) {
+      return this.tableDataOriginal; // If no term, return original data
+    }
+    return this.tableDataOriginal.filter(item =>
+      item.driverName.toLowerCase().includes(term) ||  // Search by name
+      item.phone.includes(term)  // Search by phone number
+    );
+  }
+
+  // Function to sort table data based on a column
+  sortTable(column: string): void {
+    if (this.sorting.column === column) {
+      this.sorting.direction = this.sorting.direction === 'desc' ? 'asc' : 'desc';
+    } else {
+      this.sorting.column = column;
+      this.sorting.direction = 'desc';
+    }
+    this.tableData = this.helper.sortData(this.tableData, column, this.sorting.direction); // Sort the data
   }
 
   locate(location: { lat: string, lng: string }) {
-    this.helper.openGoogleMaps(location)
+    this.helper.openGoogleMaps(location);
   }
 
   openConfirmation(event: Event) {
-
     this.confirmationService.confirm({
       target: event.target as EventTarget,
       message: 'Do you want to delete this record ?',
@@ -157,29 +191,26 @@ export class DriverComponent implements OnInit {
       rejectButtonStyleClass: "btn btn-secondary",
       acceptIcon: "none",
       rejectIcon: "none",
-
       accept: () => {
         this.messageService.add({ severity: 'success', summary: 'Confirmed', detail: 'Record deleted' });
       },
       reject: () => {
-        // this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected' });
+        // Action rejected
       }
     });
   }
 
-
-  isViewEditDriverVisible = false
+  // Modal visibility toggles
+  isViewEditDriverVisible = false;
   openViewEditModal(item?: Driver) {
-    this.selectedRow = item
-    this.isViewEditDriverVisible = !this.isViewEditDriverVisible
+    this.selectedRow = item;
+    this.isViewEditDriverVisible = !this.isViewEditDriverVisible;
   }
 
-  // View Documents
-
-  isDriverDocModalOpen = false
+  isDriverDocModalOpen = false;
   openViewDocumentModal(item?: Driver) {
-    this.selectedRow = item
-    this.isDriverDocModalOpen = !this.isDriverDocModalOpen
+    this.selectedRow = item;
+    this.isDriverDocModalOpen = !this.isDriverDocModalOpen;
   }
 
 

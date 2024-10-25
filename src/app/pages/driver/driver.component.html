@@ -5,7 +5,7 @@
         <label for="Search" class="w-60">Search</label>
         <span class="p-input-icon-left">
           <i class="icon-search"></i>
-          <input type="text" pInputText class="p-inputtext-sm" placeholder="Search" />
+          <input type="text" pInputText class="p-inputtext-sm" placeholder="Search" [(ngModel)]="searchTerm" (ngModelChange)="onSearch($event)" />
         </span>
       </div>
       <div class="item">
@@ -110,13 +110,11 @@
 
           <td class="" [ngStyle]="tableSettings[9]" [class.text-wrap]="tableOptions.textWrapping">
             <div class="flex gap-1 justify-end">
-              <span class="bsquare">
-                <i class=" icon-folder" pTooltip="View Documents" (click)="openViewDocumentModal(item);  "
-                  tooltipPosition="left"></i>
+              <span class="bsquare" (click)="openViewDocumentModal(item);  ">
+                <i class=" icon-folder" pTooltip="View Documents" tooltipPosition="left"></i>
               </span>
-              <span class="bsquare">
-                <i class=" icon-eye" pTooltip="View Driver" (click)="openViewEditModal(item); "
-                  tooltipPosition="left"></i>
+              <span class="bsquare" (click)="openViewEditModal(item); ">
+                <i class=" icon-eye" pTooltip="View Driver" tooltipPosition="left"></i>
               </span>
               <span class="bsquare" (click)="openConfirmation($event)">
                 <i class=" icon-delete" pTooltip="Delete Driver" tooltipPosition="left"></i>
@@ -142,7 +140,7 @@
 </section>
 
 
-<app-view-edit-driver [selectedDriver]="selectedRow"  *ngIf="isViewEditDriverVisible"
+<app-view-edit-driver [selectedDriver]="selectedRow" *ngIf="isViewEditDriverVisible"
   [visibility]="isViewEditDriverVisible" (toggleNewAuditModalVisibility)="openViewEditModal()"></app-view-edit-driver>
 
 <app-view-driver-documents [selectedDriver]="selectedRow" *ngIf="isDriverDocModalOpen"

@@ -1,6 +1,5 @@
 //#abstracts rule here
 @import "abstract/variables";
-@import "abstract/mixins";
 
 //#Base Rules here
 @import "base/fonts";
@@ -9,11 +8,9 @@
 
 //#layout Rules here
 @import "layout/typograpghy";
-@import "layout/spacer";
 @import "layout/border";
 @import "layout/buttons";
 @import "layout/form_group";
-@import "layout/flex_layout";
 
 //custom rules (dialogue modal, etc)
 @import "components/toaster";

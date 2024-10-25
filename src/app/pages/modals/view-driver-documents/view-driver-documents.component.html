@@ -129,12 +129,15 @@
     </section>
   </ng-template>
   <ng-template pTemplate="footer">
-    <div class="flex align-middle justify-end gap-2">
+    <div class="flex align-middle justify-between ">
       <button *ngIf="selectedDriver?.isVerified!=='3'" (click)="setVerificationStatus('3')"
         class="btn btn-primary ">Approve</button>
-      <button *ngIf="selectedDriver?.isVerified=='3'" (click)="setVerificationStatus('4')"
-        class="btn btn-primary ">Reject</button>
-      <button (click)="closeModal()" class="btn btn-secondary ">Cancel</button>
+      <div class="flex gap-2">
+        <button class="btn btn-primary ">Update Documents</button>
+        <button *ngIf="selectedDriver?.isVerified=='3'" (click)="setVerificationStatus('4')"
+          class="btn btn-primary ">Reject</button>
+        <button (click)="closeModal()" class="btn btn-secondary ">Cancel</button>
+      </div>
     </div>
   </ng-template>
 </p-dialog>

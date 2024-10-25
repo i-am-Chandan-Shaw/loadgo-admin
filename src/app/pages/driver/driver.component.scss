@@ -66,7 +66,7 @@
     font-family: 'open_sansregular';
     cursor: not-allowed !important;
     pointer-events: none !important;
-   
+
   }
 
 }
@@ -95,4 +95,18 @@
     color: #fff;
   }
 
+}
+
+::ng-deep {
+  .p-confirm-dialog {
+    timesicon {
+      display: none;
+    }
+
+    .p-dialog-content .icon-alert {
+      font-size: 20px;
+      color: #C20006;
+    }
+
+  }
 }

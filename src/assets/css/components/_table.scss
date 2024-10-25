@@ -202,3 +202,304 @@ tr th {
 
   }
 }
+
+.ecw-theader {
+  tr {
+    th {
+      font-size: 12px;
+      color: var(--table-header-text-color);
+      border-color: var(--table-header-border-color) !important;
+      background: var(--table-header-background-color);
+      padding: 4.5px 8px;
+      border: 1px solid var(--table-header-border-color);
+      font-weight: 600;
+      font-family: "open_sanssemibold" !important;
+      vertical-align: middle;
+      // height: 25px;
+      line-height: 15px;
+      position: relative;
+      // top: 0;
+
+      & input {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      input[type="checkbox"] {
+        vertical-align: middle;
+      }
+
+      &.align-top {
+        vertical-align: top;
+      }
+
+      &.text-right {
+        text-align: right;
+      }
+
+      &.active {
+        background: #232829 !important;
+        border-color: #232829 !important;
+        color: #fff;
+      }
+
+      .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:before {
+          font-size: 12px;
+          width: 12px;
+          height: 12px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        &.icon-sort {
+          margin-top: 1px;
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      th {
+        padding: 4px;
+        border-top: 0px;
+      }
+    }
+
+    &.align-top th {
+      vertical-align: top;
+    }
+  }
+
+  .text-center {
+    text-align: center;
+  }
+}
+
+
+.ecw-child-table {
+  width: 100%;
+  // overflow: auto;
+
+  tr {
+    background: #FFF;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+
+
+    &:nth-child(even) {
+      background-color: var(--table-body-alternate-bg-color);
+    }
+
+    &.isActive {
+      td.input-td {
+        overflow: unset;
+
+        textarea.fixTextarea {
+          height: 24px;
+        }
+      }
+
+      td.input-td {
+        //use this class where td has input, textarea
+        padding: 2.5px;
+      }
+
+      td.option-column {
+        //use this class where td has input, textarea
+        padding: 2.5px 8px;
+      }
+
+      // &:not(tr td){
+      //     td {
+      //         background-color: #FDE1D2 !important;
+      //     }
+      // }
+
+    }
+
+    &.isActive:not(td tr) td {
+      background-color: var(--table-active-tr-bg) !important;
+    }
+
+    &:first-child {
+      td {
+        border-top: none !important;
+      }
+    }
+
+    td {
+      padding: 3px 8px;
+      font-size: var(--default-font-size);
+      line-height: 15px;
+      height: 30px;
+      color: var(--table-body-text-color);
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      vertical-align: middle;
+      border: 1px solid #D8D8D8 !important;
+      border-color: var(--table-td-border-color) !important;
+      border-bottom: 0px !important;
+
+      .color-wrapper {
+        gap: 10px;
+      }
+
+      .options {
+        visibility: hidden;
+
+      }
+
+      span {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      input[type="checkbox"] {
+        vertical-align: middle;
+      }
+
+      &.dropdown-td {
+        overflow: visible;
+        padding: 2.5px 3px;
+
+        .p-dropdown-label {
+          padding-right: 3px;
+        }
+      }
+
+      &.input-td {
+        //use this class where td has input, textarea
+        padding: 2.5px;
+      }
+
+      &.toggle-input-td {
+        //use this class where td has toggle button
+        padding: 2.5px 8px;
+      }
+    }
+
+    td.text-wrap {
+      white-space: normal;
+    }
+
+    &:hover:not(.nobghover) {
+      background: var(--table-body-hover-bg-color);
+      border-color: var(--table-body-hover-border-color);
+
+      .options {
+        visibility: visible;
+      }
+    }
+
+    &.nobghover {
+      .scrollableContainer {
+        padding-top: 25px;
+
+        td {
+          padding: 5px 8px;
+          height: 30px;
+        }
+      }
+
+      .scrollableContainer+div>.footer-wrapper {
+        display: none;
+      }
+    }
+
+
+    &:not(:hover) {
+      td:last-child .options {
+        visibility: hidden;
+      }
+    }
+
+    &:last-child {
+      td {
+        border-bottom: 1px solid #D8D8D8 !important;
+      }
+    }
+
+    &.word-break td {
+      white-space: unset;
+      text-overflow: unset;
+      overflow: unset;
+      word-break: break-all;
+    }
+
+    // below code to be used for inner-table or child table (1st level child) ot its sub child table(2nd level child)
+    &.inner-table {
+      td {
+        .ecw-child-table {
+          tr {
+            &:last-child {
+              border-bottom: 1px solid #D8D8D8 !important;
+            }
+
+            td {
+              border-bottom: none !important
+            }
+
+
+          }
+
+          .row-expanded+tr>td {
+            border-bottom: 2px solid #666666 !important;
+          }
+        }
+      }
+    }
+  }
+
+  .row-expanded {
+
+    border-top: 2px solid #666666 !important;
+
+    >td:first-child {
+      border-left: 2px solid #666666 !important;
+    }
+
+    >td:last-child {
+      // border-right: 2px solid #666666 !important;
+    }
+
+    &+tr {
+      >td {
+        border-bottom: 2px solid #666666 !important;
+        border-top: 1px solid #D8D8D8 !important;
+      }
+
+      >td:first-child {
+        border-left: 2px solid #666666 !important;
+      }
+
+      >td:last-child {
+        // border-right: 2px solid #666666 !important;
+      }
+    }
+  }
+
+  tr.checked {
+    background-color: var(--table-active-tr-bg) !important;
+  }
+
+  .empty-state {
+    border: 1px solid #D8D8D8;
+    border-top: 0px;
+    display: flex;
+    padding: 7px 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #000;
+  }
+}
